@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="de">
+	<head>
+		<title>Schwarzer Kater</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="Schwarzer Kater" />
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+	</head>
+
+	<body>
+		<form>
+			<fieldset id="kontact_fs_arrival">
+				<label for="kontact_arrival">Arrival</label>
+				<input id="kontact_arrival" name="Arrival" required type="date"/>
+			</fieldset>
+			<fieldset id="kontact_fs_departure">
+				<label for="kontact_departure">Departure</label>
+				<input id="kontact_departure" name="Departure" required type="date"/>
+			</fieldset>
+			<fieldset id="kontact_fs_adults">
+				<label for="kontact_adults">Number of adults</label>
+				<input id="kontact_adults" name="Adults" required type="number"/>
+			</fieldset>
+			<fieldset id="kontact_fs_kids">
+				<label for="kontact_kids">Number of kids</label>
+				<input id="kontact_kids" name="Kids" required type="number"/>
+			</fieldset>
+			<fieldset id="kontact_fs_phone">
+				<label for="kontact_phone">Phone</label>
+				<input id="kontact_phone" name="Phone" type="phone"/>
+			</fieldset>
+			<fieldset id="kontact_fs_email">
+				<label for="kontact_email">E-Mail Adresse</label>
+				<input id="kontact_email" name="email" required type="email"/>
+			</fieldset>
+			<fieldset id="kontact_fs_nachricht">
+				<label for="kontact_nachricht">Nachricht</label>
+				<textarea id="kontact_nachricht"></textarea>
+			</fieldset>
+			<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!">
+			<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be contacting you about this enquiry soon.">
+			<input id="kontact_honey" type="text" name="_honey"/>
+			<legend hidden id="kontact_msg-success">Your data has been sent. We'll contact you about this enquiry soon.</legend>
+			<legend hidden id="kontact_msg-error">Your data could not been sent. Please try again later.</legend>
+			<fieldset id="kontact_fs_submit">
+				<button id="kontact_submit" type="submit">Senden</button>
+			</fieldset>
+		</form>
+	</body>
+</html>

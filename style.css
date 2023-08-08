@@ -1,0 +1,114 @@
+:root {
+	--accnt-2: #a0112f;
+	--accnt-1: #117da9;
+	--color-6: #fcfdfd;
+	--color-5: #f2f3f3;
+	--color-4: #bdbebe;
+	--color-3: #898989;
+	--color-2: #545454;
+	--color-1: #1f1f1f;
+	--gap: 1rem;
+}
+
+@media screen and (min-width: 640px)
+{
+	:root { --gap: 1.25rem }
+}
+
+@media screen and (min-width: 960px)
+{
+	:root { --gap: 1.5rem }
+}
+
+[hidden] {
+	display: none;
+	visibility: hidden;
+}
+
+body {
+	margin: 0;
+	padding: var(--gap);
+	background-color: var(--color-6);
+}
+
+/* Kontact */
+
+form {
+	display: grid;
+	gap: var(--gap);
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+}
+
+label,
+input,
+textarea {
+	display: block;
+	width: 100%;
+	line-height: 1.5;
+}
+
+input,
+textarea {
+	padding: var(--gap) 0;
+	border: 0;
+	border-bottom: 1px solid var(--color-3);
+	background-color: var(--color-6);
+	appearance: none;
+}
+
+input:focus,
+textarea:focus {
+	border-bottom: 1px dashed var(--accnt-1);
+	outline: 0;
+}
+
+#kontact_honey { display: none }
+textarea { resize: vertical }
+
+button[type="submit"] {
+	margin-top: var(--gap);
+	padding: var(--gap) calc(2 * var(--gap));
+	border: 0;
+	font-size: 1em;
+	font-weight: bold;
+	color: var(--color-6);
+	background-color: var(--accnt-1);
+}
+
+label {
+	margin: var(--gap) 0 calc(var(--gap) / 2);
+	line-height: 1.5;
+	color: var(--color-3);
+}
+
+@media screen and (min-width: 480px)
+{
+	form { grid-columns: repeat(2, 1fr) }
+
+	#kontact_fs_arrival,
+	#kontact_fs_departure,
+	#kontact_fs_phone,
+	#kontact_fs_email,
+	#kontact_fs_nachricht,
+	#kontact_fs_submit { grid-column: 1/span 2 }
+	
+	#kontact_fs_adults { grid-column: 1/2 }
+	#kontact_fs_kids { grid-column: 2/3 }
+}
+
+@media screen and (min-width: 640px)
+{
+	#kontact_fs_phone { grid-column: 1/2 }
+	#kontact_fs_email { grid-column: 2/3 }
+}
+
+@media screen and (min-width: 768px)
+{
+	form { gap: var(--gap) calc(2 * var(--gap)) }
+	#kontact_fs_arrival { grid-column: 1/2 }
+	#kontact_fs_departure { grid-column: 2/3 }
+}
