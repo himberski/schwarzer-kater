@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', function()
 {
+	const key = '1fb256e90f36e2f587011cb5c98a3786';
+	const formSubmit = 'https://formsubmit.co/ajax/' + key;
+
 	const submitBtn = document.getElementById('kontact_submit');
+	const forsendIcon = document.getElementById('kontact_submit-forsend');
+	const sendingIcon = document.getElementById('kontact_submit-sending');
+	const successIcon = document.getElementById('kontact_submit-success');
+	const warningIcon = document.getElementById('kontact_submit-warning');
 	const msgSuccess = document.getElementById('kontact_msg-success');
-	const msgError = document.getElementById('kontact_msg-error');
+	const msgWarning = document.getElementById('kontact_msg-warning');
 
 	submitBtn.addEventListener('click', function(e)
 	{
@@ -17,7 +24,22 @@ document.addEventListener('DOMContentLoaded', function()
 		let emailVal = document.getElementById('kontact_email').value;
 		let nachrichtVal = document.getElementById('kontact_nachricht').value;
 
-		fetch("https://formsubmit.co/ajax/kotikuze@mailgolem.com",
+		let arrivalDate = new Date(arrivalVal);
+		let departureDate = new Date(departureVal);
+		let dateDifference = departureDate.getTime() - arrivalDate.getTime();
+		let days = Math.ceil(dateDifference / (1000 * 3600 * 24));
+
+		let testemail = document.getElementById('testemail').value;
+		let emailAddress = testemail != '' ? testemail : formSubmit;
+
+		sendingIcon.removeAttribute('hidden');
+		forsendIcon.setAttribute('hidden', '');
+		if (successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
+		if (warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
+		if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+		if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+		
+		fetch(emailAddress,
 		{
 			method: "POST",
 			headers:
@@ -29,10 +51,11 @@ document.addEventListener('DOMContentLoaded', function()
 			{
 				Arrival: arrivalVal,
 				Departure: departureVal,
+				Nights: days,
 				Adults: adultsVal,
 				Kids: kidsVal,
-				Phone: phoneVal,
-				Email: emailVal,
+				Phone: '<a href="tel:' + phoneVal + '">' + phoneVal + '</a>',
+				Email: '<a href="mailto:' + emailVal + '">' + emailVal + '</a>',
 				Nachricht: nachrichtVal
 			})
 		})
@@ -40,12 +63,20 @@ document.addEventListener('DOMContentLoaded', function()
 		.then(data =>
 		{
 			console.log(data);
+			successIcon.removeAttribute('hidden');
+			if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
+			if (!warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
 			msgSuccess.removeAttribute('hidden');
+			if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
 		})
 		.catch(error =>
 		{
 			console.log(error);
-			msgError.removeAttribute('hidden');
+			warningIcon.removeAttribute('hidden');
+			if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
+			if (!successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
+			msgWarning.removeAttribute('hidden');
+			if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 		});
 	});
 })

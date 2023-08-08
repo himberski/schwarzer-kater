@@ -70,6 +70,11 @@ textarea:focus {
 textarea { resize: vertical }
 
 button[type="submit"] {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	gap: calc(var(--gap) / 4);
 	margin-top: var(--gap);
 	padding: var(--gap) calc(2 * var(--gap));
 	border: 0;
@@ -79,8 +84,34 @@ button[type="submit"] {
 	background-color: var(--accnt-1);
 }
 
+#kontact_submit-sending svg {
+	transform-origin: 50% 50%;
+	animation: sending_spin 1.5s linear infinite forwards;
+}
+
+@keyframes sending_spin {
+	0% {
+		transform: rotate(0deg);
+		stroke-dasharray: 25 25;
+	}
+	50% {
+		transform: rotate(180deg);
+		stroke-dasharray: 50 50;
+	}
+	100% {
+		transform: rotate(360deg);
+		stroke-dasharray: 25 25;
+	}
+}
+
 label {
 	margin: var(--gap) 0 calc(var(--gap) / 2);
+	line-height: 1.5;
+	color: var(--color-3);
+}
+
+legend {
+	margin: var(--gap) 0 0;
 	line-height: 1.5;
 	color: var(--color-3);
 }
@@ -94,7 +125,8 @@ label {
 	#kontact_fs_phone,
 	#kontact_fs_email,
 	#kontact_fs_nachricht,
-	#kontact_fs_submit { grid-column: 1/span 2 }
+	#kontact_fs_submit,
+	#kontact_fs_legend { grid-column: 1/span 2 }
 	
 	#kontact_fs_adults { grid-column: 1/2 }
 	#kontact_fs_kids { grid-column: 2/3 }
