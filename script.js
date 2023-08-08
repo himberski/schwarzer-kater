@@ -27,8 +27,13 @@ document.addEventListener('DOMContentLoaded', function()
 			},
 			body: JSON.stringify(
 			{
-				name: "Test",
-				message: "Testing this stuff"
+				Arrival: arrivalVal,
+				Departure: departureVal,
+				Adults: adultsVal,
+				Kids: kidsVal,
+				Phone: phoneVal,
+				Email: emailVal,
+				Nachricht: nachrichtVal
 			})
 		})
 		.then(response => response.json())
