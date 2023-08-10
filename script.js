@@ -39,53 +39,54 @@ document.addEventListener('DOMContentLoaded', function()
 
 	kontact.addEventListener('submit', function(e)
 	{
-		kontact.reportValidity();
-
-		// Captured data
-		formData = new FormData(form);
-
-		let arrivalVal = arrivalDatepicker.value;
-		let departureVal = departureDatepicker.value;
-
-		// Calculate the number of nights
-		let arrivalDate = new Date(arrivalVal);
-		let departureDate = new Date(departureVal);
-		let dateDifference = departureDate.getTime() - arrivalDate.getTime();
-		nightsNumber.value = Math.ceil(dateDifference / (1000 * 3600 * 24));
-
-		let testemail = document.getElementById('testemail').value;
-		let emailAddress = testemail != '' ? testemail : formSubmit;
-
-		sendingIcon.removeAttribute('hidden');
-		forsendIcon.setAttribute('hidden', '');
-		if (successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
-		if (warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
-		if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
-		if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
-		
-		fetch(emailAddress,
+		if (kontact.reportValidity())
 		{
-			method: "POST",
-			body: formData
-		})
-		.then(response => response.json())
-		.then(data =>
-		{
-			console.log(data);
-			successIcon.removeAttribute('hidden');
-			if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
-			if (!warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
-			msgSuccess.removeAttribute('hidden');
+			// Captured data
+			formData = new FormData(form);
+
+			let arrivalVal = arrivalDatepicker.value;
+			let departureVal = departureDatepicker.value;
+
+			// Calculate the number of nights
+			let arrivalDate = new Date(arrivalVal);
+			let departureDate = new Date(departureVal);
+			let dateDifference = departureDate.getTime() - arrivalDate.getTime();
+			nightsNumber.value = Math.ceil(dateDifference / (1000 * 3600 * 24));
+
+			let testemail = document.getElementById('testemail').value;
+			let emailAddress = testemail != '' ? testemail : formSubmit;
+
+			sendingIcon.removeAttribute('hidden');
+			forsendIcon.setAttribute('hidden', '');
+			if (successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
+			if (warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
+			if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 			if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
-		})
-		.catch(error =>
-		{
-			console.log(error);
-			warningIcon.removeAttribute('hidden');
-			if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
-			if (!successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
-			msgWarning.removeAttribute('hidden');
-			if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
-		});
+			
+			fetch(emailAddress,
+			{
+				method: "POST",
+				body: formData
+			})
+			.then(response => response.json())
+			.then(data =>
+			{
+				console.log(data);
+				successIcon.removeAttribute('hidden');
+				if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
+				if (!warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
+				msgSuccess.removeAttribute('hidden');
+				if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+			})
+			.catch(error =>
+			{
+				console.log(error);
+				warningIcon.removeAttribute('hidden');
+				if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
+				if (!successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
+				msgWarning.removeAttribute('hidden');
+				if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+			});
+		}
 	});
 })
