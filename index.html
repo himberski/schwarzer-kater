@@ -14,10 +14,10 @@
 	</head>
 
 	<body>
-		<form>
+		<form id="kontact">
 			<!-- Begin of temporary field -->
 			<fieldset id style="grid-column:1/span 2">
-				<label for="testemail">Send this test to the following e-mail address</label>
+				<label for="testemail">Send this test to the following e-mail address (from https://mailgolem.com/)</label>
 				<input id="testemail" name="test_email" type="email"/>
 			</fieldset>
 			<!-- End of temporary field -->
@@ -47,10 +47,12 @@
 			</fieldset>
 			<fieldset id="kontact_fs_nachricht">
 				<label for="kontact_nachricht">Nachricht</label>
-				<textarea id="kontact_nachricht"></textarea>
+				<textarea id="kontact_nachricht" name="Nachricht"></textarea>
 			</fieldset>
-			<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!">
-			<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be contacting you about this enquiry soon.">
+			<input type="hidden" id="kontact_nights" name="Nights" value="0"/>
+			<input type="hidden" name="" value="New submission from Schwarzer Kater!"/>
+			<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!"/>
+			<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be contacting you about this enquiry soon."/>
 			<input id="kontact_honey" type="text" name="_honey"/>
 			<fieldset id="kontact_fs_submit">
 				<button id="kontact_submit" type="submit">

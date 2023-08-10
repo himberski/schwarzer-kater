@@ -66,6 +66,8 @@ textarea:focus {
 	outline: 0;
 }
 
+input[type="date"]:invalid {}
+
 #kontact_honey { display: none }
 textarea { resize: vertical }
 
