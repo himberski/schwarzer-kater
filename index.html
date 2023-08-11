@@ -29,6 +29,7 @@
 				<label for="kontact_departure">Departure</label>
 				<input id="kontact_departure" name="Departure" required type="date"/>
 			</fieldset>
+			<input type="hidden" name="Nights" value="0"/>
 			<fieldset id="kontact_fs_adults">
 				<label for="kontact_adults">Number of adults</label>
 				<input id="kontact_adults" name="Adults" required type="number"/>
@@ -43,13 +44,13 @@
 			</fieldset>
 			<fieldset id="kontact_fs_email">
 				<label for="kontact_email">E-Mail Adresse</label>
-				<input id="kontact_email" name="email" required type="email"/>
+				<input id="kontact_email" name="_replyto" required type="email"/>
+				<input type="hidden" name="Email"/>
 			</fieldset>
 			<fieldset id="kontact_fs_nachricht">
 				<label for="kontact_nachricht">Nachricht</label>
 				<textarea id="kontact_nachricht" name="Nachricht"></textarea>
 			</fieldset>
-			<input type="hidden" id="kontact_nights" name="Nights" value="0"/>
 			<input type="hidden" name="" value="New submission from Schwarzer Kater!"/>
 			<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!"/>
 			<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be contacting you about this enquiry soon."/>

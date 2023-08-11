@@ -14,10 +14,14 @@ document.addEventListener('DOMContentLoaded', function()
 	// Get the date picker elements from the form
 	let arrivalDatepicker = document.getElementById('kontact_arrival');
 	let departureDatepicker = document.getElementById('kontact_departure');
-	let nightsNumber = document.getElementById('kontact_nights');
+
+	// Today's date in YYYY/MM/DD format
+	todayMinValue = new Date().toISOString().split('T')[0];
+
+	// Set the default date for the arrival date picker to today's date
+	arrivalDatepicker.value = todayMinValue;
 
 	// Set the minimum arrival & departure dates to today
-	todayMinValue = new Date().toISOString().split('T')[0];
 	departureDatepicker.min = arrivalDatepicker.min = todayMinValue
 
 	let departureMinDate = () => departureDatepicker.min = arrivalDatepicker.value;
@@ -37,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function()
 	const msgSuccess = document.getElementById('kontact_msg-success');
 	const msgWarning = document.getElementById('kontact_msg-warning');
 
-	kontact.addEventListener('submit', function(e)
+	kontact.addEventListener('submit', (e) =>
 	{
 		if (kontact.reportValidity())
 		{
@@ -51,8 +55,13 @@ document.addEventListener('DOMContentLoaded', function()
 			let arrivalDate = new Date(arrivalVal);
 			let departureDate = new Date(departureVal);
 			let dateDifference = departureDate.getTime() - arrivalDate.getTime();
-			nightsNumber.value = Math.ceil(dateDifference / (1000 * 3600 * 24));
+			formData.set('Nights', Math.ceil(dateDifference / (1000 * 3600 * 24)));
 
+
+			// Set value for the 'actual' email field
+			formData.set('Email', formData.get('_replyto'))
+
+			// Temporary email field
 			let testemail = document.getElementById('testemail').value;
 			let emailAddress = testemail != '' ? testemail : formSubmit;
 
@@ -66,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function()
 			fetch(emailAddress,
 			{
 				method: "POST",
-				body: formData
+				body: formData,
 			})
 			.then(response => response.json())
 			.then(data =>
@@ -88,5 +97,15 @@ document.addEventListener('DOMContentLoaded', function()
 				if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 			});
 		}
+	});
+
+	submitBtn.addEventListener('click', (e) =>
+	{
+		e.stopPropagation();
+		e.preventDefault();
+
+		domEvent = document.createEvent('Event');
+		domEvent.initEvent('submit', false, true);
+		e.target.closest('form').dispatchEvent(domEvent);
 	});
 })
