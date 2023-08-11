@@ -57,13 +57,12 @@ document.addEventListener('DOMContentLoaded', function()
 			let dateDifference = departureDate.getTime() - arrivalDate.getTime();
 			formData.set('Nights', Math.ceil(dateDifference / (1000 * 3600 * 24)));
 
-
 			// Set value for the 'actual' email field
 			formData.set('Email', formData.get('_replyto'))
 
 			// Temporary email field
 			let testemail = document.getElementById('testemail').value;
-			let emailAddress = testemail != '' ? testemail : formSubmit;
+			let emailAddress = testemail != '' ? 'https://formsubmit.co/ajax/' + testemail : formSubmit;
 
 			sendingIcon.removeAttribute('hidden');
 			forsendIcon.setAttribute('hidden', '');
