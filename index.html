@@ -14,7 +14,67 @@
 	</head>
 
 	<body>
-		<div id="map"></div>
+		
+		<!-- Hero image -->
+		<header>
+			<h1 id="header_logo">
+				<a href="https://www.schwarzer-kater.de/">
+					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739.016 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
+						<title id="logo-title">Schwarzer Kater</title>
+						<use role="presentation" href="logo.svg#logo-h"></use>
+					</svg>
+				</a>
+			</h1>
+			<nav>
+				<label for="menu_toggle">
+					<svg xmlns="http://www.w3.org/2000/svg" aria-label="Menu icon" role="img" viewBox="0 0 20 20">
+						<rect width="20" height="2" x="0" y="3" fill="currentColor"></rect>
+						<rect width="20" height="2" x="0" y="9" fill="currentColor"></rect>
+						<rect width="20" height="2" x="0" y="9" fill="currentColor"></rect>
+						<rect width="20" height="2" x="0" y="15" fill="currentColor"></rect>
+					</svg>
+				</label>
+				<input type="checkbox" id="menu_toggle"/>
+				<ul>
+					<li>
+						<a href="#">First</a>
+					</li>
+					<li>
+						<a href="#">Second</a>
+					</li>
+					<li>
+						<a href="#">Third</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Hero image -->
+		<div id="heropic">
+			<img id="heropic-img" src="/img/hero.jpg" alt="Schwarzer Kater"/>
+		</div>
+
+		<!-- About text -->
+		<div id="about">
+			<h2>Get to know the coziest place in Germany.</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
+		</div>
+
+		<!-- Anreise -->
+		<div id="anreise">
+			<div id="anreise-info">
+				<h3>Hier finden Sie uns</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
+				<ul>
+					<li>Lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
+					<li>Justo posuere vestibulum vitae ornare cras orci euismod.</li>
+					<li>Lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
+				</ul>
+			</div>
+			<div id="anreise-map"></div>
+		</div>
+
+		<!-- The contact form -->
 		<form id="kontact">
 			<!-- Begin of temporary field -->
 			<fieldset id style="grid-column:1/span 2">

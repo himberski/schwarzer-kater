@@ -19,6 +19,13 @@
 {
 	:root { --gap: 1.5rem }
 }
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
 
 [hidden] {
 	display: none;
@@ -27,16 +34,100 @@
 
 body {
 	margin: 0;
-	padding: var(--gap);
 	background-color: var(--color-6);
+}
+
+/* Header */
+
+header {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+	padding: calc(var(--gap) / 2);
+	top: 0;
+	border-top: calc(var(--gap) / 2) solid var(--accnt-1);
+	background-color: var(--color-6);
+}
+
+#header_logo {
+	flex: 1 0 auto;
+	margin: 0;
+}
+
+#header_logo a {
+	display: block;
+	line-height: 0;
+}
+
+#header_logo svg {
+	display: block;
+	height: 100%;
+	max-height: calc(2 * var(--gap));
+}
+
+/* Navigation */
+
+#menu_toggle { display: none }
+
+nav svg {
+	width: 20px;
+	height: 20px;
+	color: var(--color3);
+	transition: color 300ms linear;
+}
+
+nav svg:hover { color: var(--accnt1) }
+
+nav ul {
+	position: absolute;
+	display: none;
+	flex-flow: column nowrap;
+	align-items: center;
+	margin: auto;
+	padding: calc(var(--gap) / 2);
+	right: 0;
+	top: 100%;
+	left: 0;
+	list-style: none;
+	background-color: var(--color-1);
+}
+
+nav a {
+	display: block;
+	padding: calc(var(--gap) / 2);
+	color: var(--color-6);
+}
+
+nav a:hover {
+	background-color: var(--accnt-1);
+}
+
+#menu_toggle:checked~ul { display: block }
+
+/* Hero image */
+
+#heropic-img { width: 100% }
+
+/* About */
+
+#about h2 { text-align: center }
+
+#about h2::after {
+	display: block;
+	margin: var(--gap) auto;
+	width: var(--gap);
+	height: var(--gap);
+	border-radius: 50%;
+	content: '';
+	background-color: var(--accnt-2);
 }
 
 /* Map */
 
-#map {
-	height: 100%;
-	height: 100vh;
-}
+#anreise-map { height: 100vw }
 
 /* Kontact */
 
@@ -76,9 +167,9 @@ textarea:focus {
 input[type="date"]:invalid {}
 
 #kontact_honey { display: none }
-textarea { resize: vertical }
+#kontact_fs_nachricht { resize: vertical }
 
-button[type="submit"] {
+#kontact_submit {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-start;
@@ -91,7 +182,12 @@ button[type="submit"] {
 	font-weight: bold;
 	color: var(--color-6);
 	background-color: var(--accnt-1);
+	transition: background-color 300ms ease-in-out;
 }
+
+#kontact_submit:hover { background-color: var(--color-2) }
+#kontact_submit:active { background-color: var(--color-3) }
+#kontact_submit:focus { background-color: var(--color-1) }
 
 #kontact_submit-sending svg {
 	transform-origin: 50% 50%;
