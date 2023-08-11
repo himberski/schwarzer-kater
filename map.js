@@ -34,7 +34,7 @@ async function initMap()
 	// A marker with the logo of Schwarzer Kater
 	const glyphImg = document.createElement("img");
 
-	glyphImg.src = "/logo.svg";
+	glyphImg.src = "logo.svg";
 
 	const glyphSvgPinElement = new PinElement({
 		glyph: glyphImg,
