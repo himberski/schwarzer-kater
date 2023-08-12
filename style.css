@@ -8,6 +8,8 @@
 	--color-2: #545454;
 	--color-1: #1f1f1f;
 	--gap: 1rem;
+	--transition: ease-in-out;
+	--transtime: 300ms;
 }
 
 @media screen and (min-width: 640px)
@@ -48,7 +50,7 @@ header {
 	position: sticky;
 	padding: calc(var(--gap) / 2);
 	top: 0;
-	border-top: calc(var(--gap) / 2) solid var(--accnt-1);
+	z-index: 1;
 	background-color: var(--color-6);
 }
 
@@ -68,18 +70,28 @@ header {
 	max-height: calc(2 * var(--gap));
 }
 
+@media screen and (min-width: 320px)
+{
+	header { padding: var(--gap) }
+}
+
 /* Navigation */
 
 #menu_toggle { display: none }
 
 nav svg {
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	color: var(--color3);
-	transition: color 300ms linear;
+	transition: color var(--transtime) linear;
 }
 
-nav svg:hover { color: var(--accnt1) }
+nav svg:hover { color: var(--accnt-1) }
+
+nav rect {
+	transition: transform var(--transtime) var(--transition);
+	transform-origin: 50% 50%;
+}
 
 nav ul {
 	position: absolute;
@@ -92,20 +104,28 @@ nav ul {
 	top: 100%;
 	left: 0;
 	list-style: none;
-	background-color: var(--color-1);
+	background-color: var(--color-6);
 }
 
 nav a {
 	display: block;
 	padding: calc(var(--gap) / 2);
-	color: var(--color-6);
+	color: var(--color-1);
+	text-decoration: none;
+	transition: background-color var(--transtime) var(--transition);
 }
 
 nav a:hover {
+	color: var(--color-6);
 	background-color: var(--accnt-1);
 }
 
 #menu_toggle:checked~ul { display: block }
+
+#menu_toggle:checked~label rect:nth-child(1) { transform: scaleX(0) translateY(6px) }
+#menu_toggle:checked~label rect:nth-child(4) { transform: scaleX(0) translateY(-6px) }
+#menu_toggle:checked~label rect:nth-child(2) { transform: rotate(45deg) }
+#menu_toggle:checked~label rect:nth-child(3) { transform: rotate(-45deg) }
 
 /* Hero image */
 
@@ -181,13 +201,13 @@ input[type="date"]:invalid {}
 	font-size: 1em;
 	font-weight: bold;
 	color: var(--color-6);
-	background-color: var(--accnt-1);
-	transition: background-color 300ms ease-in-out;
+	background-color: var(--color-1);
+	transition: background-color var(--transtime) var(--transition);
 }
 
-#kontact_submit:hover { background-color: var(--color-2) }
+#kontact_submit:hover { background-color: var(--accnt-1) }
 #kontact_submit:active { background-color: var(--color-3) }
-#kontact_submit:focus { background-color: var(--color-1) }
+#kontact_submit:focus { background-color: var(--color-2) }
 
 #kontact_submit-sending svg {
 	transform-origin: 50% 50%;
@@ -210,8 +230,8 @@ input[type="date"]:invalid {}
 }
 
 label {
-	margin: var(--gap) 0 calc(var(--gap) / 2);
-	line-height: 1.5;
+	margin: 0;
+	line-height: 0;
 	color: var(--color-3);
 }
 

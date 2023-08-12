@@ -3,8 +3,8 @@ async function initMap()
 	// The position
 	const position = { lat: 52.10309, lng: 14.11857 };
 
-	// The icon
-	const icon = 'logo.svg#logo-m';
+	// The logo
+	const logo = 'logo.svg#logo-m';
 
 	// Request needed libraries.
 	const { Map } = await google.maps.importLibrary("maps");
@@ -34,11 +34,11 @@ async function initMap()
 		}
 	});
 
-	// A marker with the logo of Schwarzer Kater
+	// The marker node
 	const glyphImg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 	const glyphUse = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
-	glyphUse.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', icon);
+	glyphUse.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', logo);
 	glyphImg.appendChild(glyphUse);
 
 	const glyphSvgPinElement = new PinElement(
