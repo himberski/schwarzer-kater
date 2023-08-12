@@ -17,8 +17,8 @@
 		
 		<!-- Hero image -->
 		<header>
-			<h1 id="header_logo">
-				<a href="https://www.schwarzer-kater.de/">
+			<h1 id="header-logo">
+				<a class="logo_link" href="#heropic">
 					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739.016 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
 						<title id="logo-title">Schwarzer Kater</title>
 						<use role="presentation" href="logo.svg#logo-h"></use>
@@ -29,10 +29,10 @@
 				<input type="checkbox" id="menu_toggle"/>
 				<label for="menu_toggle">
 					<svg xmlns="http://www.w3.org/2000/svg" aria-label="Menu icon" role="img" viewBox="0 0 40 40">
-						<rect width="40" height="2" x="0" y="11" fill="currentColor"></rect>
-						<rect width="40" height="2" x="0" y="19" fill="currentColor"></rect>
-						<rect width="40" height="2" x="0" y="19" fill="currentColor"></rect>
-						<rect width="40" height="2" x="0" y="27" fill="currentColor"></rect>
+						<rect width="28" height="2" x="12" y="11" fill="currentColor"></rect>
+						<rect width="32" height="2" x="8" y="19" fill="currentColor"></rect>
+						<rect width="32" height="2" x="8" y="19" fill="currentColor"></rect>
+						<rect width="24" height="2" x="16" y="27" fill="currentColor"></rect>
 					</svg>
 				</label>
 				<ul>
@@ -50,19 +50,30 @@
 		</header>
 
 		<!-- Hero image -->
-		<div id="heropic">
-			<img id="heropic-img" src="/img/hero.jpg" alt="Schwarzer Kater"/>
+		<div id="heropic" class="img_wrapper">
+			<img src="/img/hero.jpg" alt="Schwarzer Kater"/>
 		</div>
 
-		<!-- About text -->
-		<div id="about">
+		<!-- Intro text -->
+		<main class="textwrapper">
 			<h2>Get to know the coziest place in Germany.</h2>
 			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
-		</div>
+		</main>
+
+		<!-- Über uns -->
+		<section id="uberuns">
+			<div id="uberuns-info" class="textwrapper">
+				<h3>Über uns</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
+			</div>
+			<div id="uberuns-imgwrapper" class="img_wrapper">
+				<img src="/img/uber-uns.jpg" alt="Uber Schwarzer Kater"/>
+			</div>
+		</section>
 
 		<!-- Anreise -->
-		<div id="anreise">
-			<div id="anreise-info">
+		<section id="anreise">
+			<div id="anreise-info" class="textwrapper">
 				<h3>Hier finden Sie uns</h3>
 				<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
 				<ul>
@@ -72,16 +83,10 @@
 				</ul>
 			</div>
 			<div id="anreise-map"></div>
-		</div>
+		</section>
 
 		<!-- The contact form -->
 		<form id="kontact">
-			<!-- Begin of temporary field -->
-			<fieldset id style="grid-column:1/span 2">
-				<label for="testemail">Send this test to the following e-mail address (from https://mailgolem.com/)</label>
-				<input id="testemail" name="test_email" type="email"/>
-			</fieldset>
-			<!-- End of temporary field -->
 			<fieldset id="kontact_fs_arrival">
 				<label for="kontact_arrival">Arrival</label>
 				<input id="kontact_arrival" name="Arrival" required type="date"/>
@@ -151,6 +156,28 @@
 				<legend hidden id="kontact_msg-warning">Your data could not been sent. Please try again later.</legend>
 			</fieldset>
 		</form>
+
+		<footer>
+			<div id="footer_about">
+				<div id="footer-logo">
+					<a class="logo_link" href="#heropic">
+						<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739.016 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
+							<title id="logo-title">Schwarzer Kater</title>
+							<use role="presentation" href="logo.svg#logo-h"></use>
+						</svg>
+					</a>
+				</div>
+				<div id="footer-info">
+					<h4>Pension Schwarzer Kater</h4>
+					<p>Mara Rosenbauer</p>
+					<p>Maciej Malinowski</p>
+					<address>
+						<p>Schwarzer Kater 2</p>
+						<p>15848 Tauche OT Briescht</p>
+					</address>
+				</div>
+			</div>
+		</footer>
 	</body>
 	<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
     ({key: "AIzaSyB44GR7ttwqBn0akIZaAthPJf6FeAzBf9s", v: "beta"});</script>

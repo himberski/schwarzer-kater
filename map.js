@@ -44,7 +44,7 @@ async function initMap()
 	const glyphSvgPinElement = new PinElement(
 	{
 		glyph: glyphImg,
-		scale: 2.25,
+		scale: 1.5,
 		background: '#117da9',
 		borderColor: '#016d99',
 	});

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function()
 {
 	// The hash-like string to send the emails to, from formsubmit.co
-	const key = '1fb256e90f36e2f587011cb5c98a3786';
+	const key = '7e9e403a0b910a85054275ec2df01e59';
 	// The formsubmit.co URL where the data is being sent to
 	const formSubmit = 'https://formsubmit.co/ajax/' + key;
 
@@ -60,10 +60,6 @@ document.addEventListener('DOMContentLoaded', function()
 			// Set value for the 'actual' email field
 			formData.set('Email', formData.get('_replyto'))
 
-			// Temporary email field
-			let testemail = document.getElementById('testemail').value;
-			let emailAddress = testemail != '' ? 'https://formsubmit.co/ajax/' + testemail : formSubmit;
-
 			sendingIcon.removeAttribute('hidden');
 			forsendIcon.setAttribute('hidden', '');
 			if (successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
@@ -71,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function()
 			if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 			if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
 			
-			fetch(emailAddress,
+			fetch(formSubmit,
 			{
 				method: "POST",
 				body: formData,
