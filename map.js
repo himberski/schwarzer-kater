@@ -4,7 +4,7 @@ async function initMap()
 	const position = { lat: 52.10309, lng: 14.11857 };
 
 	// The icon
-	const icon = "logo.svg#logo-m"
+	const icon = 'logo.svg#logo-m';
 
 	// Request needed libraries.
 	const { Map } = await google.maps.importLibrary("maps");
@@ -35,14 +35,22 @@ async function initMap()
 	});
 
 	// A marker with the logo of Schwarzer Kater
-	const glyphImg = document.createElement("img");
+	const glyphImg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	const glyphUse = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
-	glyphImg.src = icon;
+	glyphUse.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', icon);
+	glyphImg.appendChild(glyphUse);
 
-	const glyphSvgPinElement = new PinElement({
+	const glyphSvgPinElement = new PinElement(
+	{
 		glyph: glyphImg,
+		scale: 2.25,
+		background: '#117da9',
+		borderColor: '#016d99',
 	});
-	const glyphSvgMarkerView = new AdvancedMarkerElement({
+
+	const glyphSvgMarkerView = new AdvancedMarkerElement(
+	{
 		map,
 		position: position,
 		content: glyphSvgPinElement.element,
