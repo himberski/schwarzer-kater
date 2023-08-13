@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function()
 	const formSubmit = 'https://formsubmit.co/ajax/' + key;
 
 	// The form element
-	let form = document.forms.namedItem('kontact');
+	let form = document.forms.namedItem('kontactform');
 
 	// Get the required fields
 	let requiredFields = document.querySelectorAll('[required]');
@@ -15,17 +15,25 @@ document.addEventListener('DOMContentLoaded', function()
 	let arrivalDatepicker = document.getElementById('kontact_arrival');
 	let departureDatepicker = document.getElementById('kontact_departure');
 
-	// Today's date in YYYY/MM/DD format
-	todayMinValue = new Date().toISOString().split('T')[0];
+	// Dates for today and tomorrow
+	todayDate = new Date();
+	tomorrowDate = new Date(todayDate);
+	tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+	todayDateStr = todayDate.toISOString().split('T')[0];
+	tomorrowDateStr = tomorrowDate.toISOString().split('T')[0];
 
 	// Set the default date for the arrival date picker to today's date
-	arrivalDatepicker.value = todayMinValue;
+	arrivalDatepicker.value = todayDateStr;
 
-	// Set the minimum arrival & departure dates to today
-	departureDatepicker.min = arrivalDatepicker.min = todayMinValue
+	// ...And set the default date for the departure date picker to tomorrow
+	departureDatepicker.value = tomorrowDateStr;
+
+	// Set the minimum arrival date to today; departure minimum date for tomorrow
+	arrivalDatepicker.min = todayDateStr;
+	departureDatepicker.min = tomorrowDateStr;
 
 	let departureMinDate = () => departureDatepicker.min = arrivalDatepicker.value;
-	let arrivalMaxDate = () => arrivalDatepicker.max = departureDatepicker.value >= todayMinValue ? departureDatepicker.value : todayMinValue;
+	let arrivalMaxDate = () => arrivalDatepicker.max = departureDatepicker.value >= todayDateStr ? departureDatepicker.value : todayDateStr;
 
 	arrivalDatepicker.addEventListener('change', departureMinDate );
 	departureDatepicker.addEventListener('change', arrivalMaxDate );
@@ -41,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function()
 	const msgSuccess = document.getElementById('kontact_msg-success');
 	const msgWarning = document.getElementById('kontact_msg-warning');
 
-	kontact.addEventListener('submit', (e) =>
+	form.addEventListener('submit', (e) =>
 	{
-		if (kontact.reportValidity())
+		if (form.reportValidity())
 		{
 			// Captured data
 			formData = new FormData(form);
