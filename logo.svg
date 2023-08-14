@@ -73,6 +73,6 @@
 	<view id="logo-h-view" viewBox="0 0 739.016 175.664"/>
 	<use xlink:href="#logo-h" x="0" y="0" width="739.016" height="175.664"/>
 	
-	<view id="logo-m-view" viewBox="0 0 158.75 175.664">
+	<view id="logo-m-view" viewBox="0 0 158.75 175.664"/>
 	<use xlink:href="#logo-m" x="0" y="0" width="158.75" height="175.664"/>
 </svg>
