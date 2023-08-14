@@ -70,6 +70,7 @@ footer {
 }
 
 .textwrapper {
+	margin-bottom: calc(2 * var(--vgap));
 	margin-left: var(--hgap);
 	margin-right: var(--hgap);
 }
@@ -77,7 +78,31 @@ footer {
 .textwrapper h2,
 .textwrapper h3 { margin-bottom: var(--vgap) }
 
-section { margin-top: calc(4 * var(--vgap)) }
+.img_wrapper {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	line-height: 0;
+}
+
+.img_wrapper::after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	content: '';
+	background-color: var(--accnt-1);
+	opacity: 0.25;
+	mix-blend-mode: lighten;
+}
+
+.img_wrapper img {
+	width: 100%;
+	opacity: .95;
+	filter:  brightness(110%) contrast(116%) grayscale(0%) hue-rotate(342deg) invert(0%) opacity(100%) saturate(84%) sepia(0%);
+	mix-blend-mode: none;
+}
 
 @media screen and (min-width: 30rem)
 {
@@ -111,7 +136,7 @@ header {
 	align-items: center;
 	position: sticky;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
 	background-color: var(--color-6);
 }
 
@@ -175,49 +200,65 @@ nav a:hover {
 
 /* Hero image */
 
-.img_wrapper {
-	position: relative;
-	display: inline-block;
-	width: 100%;
-	line-height: 0;
-}
-
-.img_wrapper::after {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	content: '';
-	background-color: var(--accnt-1);
-	opacity: 0.25;
-	mix-blend-mode: lighten;
-}
-
-.img_wrapper img {
-	width: 100%;
-	opacity: .95;
-	filter:  brightness(110%) contrast(116%) grayscale(0%) hue-rotate(342deg) invert(0%) opacity(100%) saturate(84%) sepia(0%);
-	mix-blend-mode: none;
-}
-
 /* Sections */
+
+section { margin-top: calc(4 * var(--vgap)) }
+
+main h2,
+section h2,
+main h3,
+section h3 { line-height: 1.25 }
+
+main h2,
+section h2 { color: var(--color-1) }
+
+main h3,
+section h3 { color: var(--color-2) }
 
 main p,
 section p,
-main li,
-section li {
-	line-height: 1.5;
-	color: var(--color-0);
+section li,
+section dt,
+section dd { line-height: 1.5 }
+
+main p,
+section p,
+section li,
+section dd { color: var(--color-2) }
+
+section ul,
+section dl {
+	margin-top: var(--vgap);
+	margin-bottom: var(--vgap);
 }
 
-main h2,
-section h2 {
-	line-height: 1.25;
-	color: var(--color-1);
+section ul { padding-left: var(--hgap) }
+section li::marker { color: var(--accnt-1) }
+
+section dl {
+	display: grid;
+	grid-template-rows: minmax(min-content,max-content);
+	align-items: baseline;
+}
+
+section dt {
+	font-weight: bold;
+	color: var(--color-3);
+}
+
+section dd+dt { margin-top: var(--vgap) }
+
+@media screen and (min-width: 40rem)
+{
+	section dl {
+		grid-template-columns: 1fr 2fr;
+		grid-column-gap: var(--hgap);
+	}
 }
 
 /* Main (intro) section */
+
+main { margin-top: calc(2 * var(--vgap)) }
 
 /* Über uns */
 
@@ -277,10 +318,9 @@ textarea:focus {
 }
 
 input[type="date"]:invalid { border-bottom: 1px solid var(--accnt-2) }
-
 #kontact_honey { display: none }
-
 #kontact_fs_nachricht { resize: vertical }
+#kontactform small { color: var(--color-3) }
 
 #kontact_submit {
 	display: flex;
@@ -346,7 +386,8 @@ legend {
 	#kontact_fs_email,
 	#kontact_fs_nachricht,
 	#kontact_fs_submit,
-	#kontact_fs_legend { grid-column: 1/span 2 }
+	#kontact_fs_legend,
+	#kontactform small { grid-column: 1/span 2 }
 	
 	#kontact_fs_adults { grid-column: 1/2 }
 	#kontact_fs_kids { grid-column: 2/3 }
@@ -373,6 +414,8 @@ legend {
 /* Footer */
 
 footer {
+	flex-flow: column nowrap;
+	margin-bottom: var(--vgap);
 	border-top: 1px solid var(--color-4);
 	text-align: center;
 }
@@ -392,6 +435,54 @@ footer {
 #footer-info p { margin: 0 }
 #footer-info>p { color: var(--color-2) }
 #footer-info address { font-style: normal }
+
+#footer_contact a {
+	display: block;
+	font-weight: bold;
+	line-height: 1.5;
+	color: var(--color-1);
+	text-decoration: none;
+}
+
+#footer_contact a:active,
+#footer_contact a:focus,
+#footer_contact a:hover { text-decoration: underline }
+
+#footer_contact a:hover { color: var(--accnt-1) }
+
+#footer_copyright { margin-top: calc(2 * var(--vgap)) }
+
+#footer_copyright span,
+#footer_copyright a {
+	display: block;
+	line-height: 1.5;
+}
+
+#footer_copyright span {
+	font-size: .85em;
+	color: var(--color-2);
+}
+
+#footer_copyright a {
+	margin-top: var(--vgap);
+	font-size: .75em;
+	color: var(--color-3);
+	text-decoration: none;
+}
+
+#footer_copyright a:hover {
+	color: var(--color-2);
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 30rem)
+{
+	#footer_copyright a::before,
+	#footer_copyright a::after { content: '\2014' }
+
+	#footer_copyright a::before { margin-right: .25em }
+	#footer_copyright a::after { margin-left: .25em }
+}
 
 @media screen and (min-width: 20rem)
 {
