@@ -12,7 +12,7 @@
 	--hgap: var(--gap);
 	--vgap: 1rem;
 	--typeface: 'karmina-sans', sans-serif;
-	--transition: ease-in-out;
+	--easing: ease-in-out;
 	--transtime: 300ms;
 }
 
@@ -147,21 +147,39 @@ header {
 	position: sticky;
 	top: 0;
 	z-index: 2;
+}
+
+header::after {
+	position: absolute;
+	display: block;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	content: '';
+	z-index: 0;
 	background-color: var(--color-6);
 }
 
 #header-logo {
-	flex: 1 0 auto;
+	flex-grow: 1;
 	margin: 0;
+	z-index: 1;
 }
 
 /* Navigation */
+
+nav { flex-grow: 1 }
 
 #menu_toggle { display: none }
 
 nav svg {
 	width: calc(2 * var(--gap));
 	height: calc(2 * var(--gap));
+	float: right;
 	color: var(--color3);
 	transition: color var(--transtime) linear;
 }
@@ -169,13 +187,13 @@ nav svg {
 nav svg:hover { color: var(--accnt-1) }
 
 nav rect {
-	transition: transform var(--transtime) var(--transition);
+	transition: transform var(--transtime) var(--easing);
 	transform-origin: 24px 20px;
 }
 
 nav ul {
 	position: absolute;
-	display: none;
+	display: block;
 	flex-flow: column nowrap;
 	align-items: center;
 	margin: auto;
@@ -185,6 +203,8 @@ nav ul {
 	left: 0;
 	list-style: none;
 	background-color: var(--color-6);
+	transform: translateY(-100%);
+	transition: transform var(--transtime) var(--easing);
 }
 
 nav a {
@@ -193,7 +213,7 @@ nav a {
 	text-align: center;
 	color: var(--color-0);
 	text-decoration: none;
-	transition: background-color var(--transtime) var(--transition);
+	transition: background-color var(--transtime) var(--easing);
 }
 
 nav a:hover {
@@ -201,7 +221,7 @@ nav a:hover {
 	background-color: var(--color-1);
 }
 
-#menu_toggle:checked~ul { display: block }
+#menu_toggle:checked~ul { transform: translateY(0) }
 
 #menu_toggle:checked~label rect:nth-child(1) { transform: scaleX(0) }
 #menu_toggle:checked~label rect:nth-child(4) { transform: scaleX(0) }
@@ -345,11 +365,13 @@ input[type="date"]:invalid { border-bottom: 1px solid var(--accnt-2) }
 	width: 100%;
 	border: 0;
 	font-family: var(--typeface);
-	font-size: 1em;
-	font-weight: bold;
+	font-size: 1.25em;
+	font-weight: 600;
+	font-variant-caps: all-small-caps;
+	letter-spacing: .075em;
 	color: var(--color-6);
 	background-color: var(--color-1);
-	transition: background-color var(--transtime) var(--transition);
+	transition: background-color var(--transtime) var(--easing);
 }
 
 #kontact_submit:hover { background-color: var(--accnt-1) }
@@ -448,13 +470,20 @@ footer {
 #footer-info h4,
 #footer-info address { margin: var(--vgap) 0 }
 
+#footer-info h4 {
+	font-size: 1.25em;
+	font-weight: 400;
+	font-variant-caps: all-small-caps;
+	letter-spacing: .075em;
+}
+
 #footer-info p { margin: 0 }
 #footer-info>p { color: var(--color-2) }
 #footer-info address { font-style: normal }
 
 #footer_contact a {
 	display: block;
-	font-weight: bold;
+	font-weight: 600;
 	line-height: 1.5;
 	color: var(--color-1);
 	text-decoration: none;
