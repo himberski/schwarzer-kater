@@ -356,6 +356,8 @@ input[type="date"]:invalid { border-bottom: 1px solid var(--accnt-2) }
 #kontact_submit:active { background-color: var(--color-3) }
 #kontact_submit:focus { background-color: var(--color-2) }
 
+#kontact_submit svg { vertical-align: middle }
+
 #kontact_submit-sending svg {
 	transform-origin: 50% 50%;
 	animation: sending_spin 1.5s linear infinite forwards;
