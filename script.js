@@ -111,4 +111,23 @@ document.addEventListener('DOMContentLoaded', function()
 		domEvent.initEvent('submit', false, true);
 		e.target.closest('form').dispatchEvent(domEvent);
 	});
+
+	/* Interactive galleries for the apartment pictures */
+
+	const apartmentGalleries = document.querySelectorAll('.beschreibung-gallery');
+
+	apartmentGalleries.forEach( gallery =>
+	{
+		let activeImg = gallery.querySelector('.beschreibung-image>img');
+		let images = gallery.querySelectorAll('.beschreibung-images img');
+
+		images.forEach( image =>
+		{
+			image.addEventListener('click', (e) =>
+			{
+				activeImg.src = e.target.src;
+				activeImg.alt = e.target.alt;
+			});
+		});
+	});
 })

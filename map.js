@@ -13,7 +13,7 @@ async function initMap()
 	const map = new Map(document.getElementById("anreise-map"),
 	{
 		center: position,
-		zoom: 13,
+		zoom: 12,
 		mapId: "ce1f9395fc5bcbe9",
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		disableDoubleClickZoom: true,
