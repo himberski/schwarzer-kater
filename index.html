@@ -20,7 +20,7 @@
 		<header>
 			<h1 id="header-logo">
 				<a class="logo_link" href="#heropic">
-					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739.016 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
+					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740.221 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
 						<title id="logo-title">Schwarzer Kater</title>
 						<use role="presentation" href="logo.svg#logo-h"></use>
 					</svg>
@@ -41,7 +41,7 @@
 					<li><a href="#details">Details</a></li>
 					<li><a href="#uberuns">Über uns</a></li>
 					<li><a href="#anreise">Anreise</a></li>
-					<li><a href="#kontact">Kontact</a></li>
+					<li><a href="#kontakt">Kontakt</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -55,6 +55,7 @@
 		<main class="textwrapper">
 			<h2>Ihre Ferienwohnung in Briescht.</h2>
 			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
+			<a tabindex="0" role="button" id="toggle" aria-pressed="false" href="#kontakt">Reservierung anfragen</a>
 		</main>
 
 		<!-- Apartments -->
@@ -174,7 +175,7 @@
 				<h3>Über uns</h3>
 				<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, justo posuere vestibulum vitae ornare cras orci euismod, sapien et quis interdum litora dapibus. Sodales malesuada etiam aliquam quis massa imperdiet placerat eu ridiculus, cubilia semper ultricies magnis inceptos iaculis purus fringilla pretium metus.</p>
 			</div>
-			<div id="uberuns-imgwrapper" class="imgwrapper">
+			<div id="uberuns-img" class="imgwrapper">
 				<img src="img/uber-uns.jpg" alt="Uber Schwarzer Kater"/>
 			</div>
 		</section>
@@ -193,81 +194,73 @@
 			<div id="anreise-map"></div>
 		</section>
 
-		<!-- The contact form -->
-		<section id="kontact">
-			<div id="kontact-info" class="textwrapper">
-				<h3>Kontact</h3>
+		<!-- The kontakt form -->
+		<section id="kontakt">
+			<div id="kontakt-info" class="textwrapper">
+				<h3>Kontakt</h3>
 				<p>Hiermit erkläre ich mich einverstanden, dass meine in das Kontaktformular eingegebenen Daten elektronisch gespeichert und zum Zweck der Kontaktaufnahme verarbeitet und genutzt werden. Mir ist bekannt, dass ich meine Einwilligung jederzeit widerrufen kann.</p>
 			</div>
-			<form id="kontactform">
-				<fieldset id="kontact_fs_arrival">
-					<label for="kontact_arrival">Arrival</label>
-					<input id="kontact_arrival" name="Arrival" required type="date"/>
+			<form id="kontaktform">
+				<fieldset id="kontakt_fs_arrival">
+					<label for="kontakt_arrival">Arrival<span class="kontakt-required">*</span></label>
+					<input id="kontakt_arrival" name="Arrival" required type="date"/>
 				</fieldset>
-				<fieldset id="kontact_fs_departure">
-					<label for="kontact_departure">Departure</label>
-					<input id="kontact_departure" name="Departure" required type="date"/>
+				<fieldset id="kontakt_fs_departure">
+					<label for="kontakt_departure">Departure<span class="kontakt-required">*</span></label>
+					<input id="kontakt_departure" name="Departure" required type="date"/>
 				</fieldset>
 				<input type="hidden" name="Nights" value="0"/>
-				<fieldset id="kontact_fs_adults">
-					<label for="kontact_adults">Number of adults</label>
-					<input id="kontact_adults" name="Adults" required type="number"/>
+				<fieldset id="kontakt_fs_adults">
+					<label for="kontakt_adults">Number of adults<span class="kontakt-required">*</span></label>
+					<input id="kontakt_adults" name="Adults" required type="number"/>
 				</fieldset>
-				<fieldset id="kontact_fs_kids">
-					<label for="kontact_kids">Number of kids</label>
-					<input id="kontact_kids" name="Kids" required type="number"/>
+				<fieldset id="kontakt_fs_kids">
+					<label for="kontakt_kids">Number of kids<span class="kontakt-required">*</span></label>
+					<input id="kontakt_kids" name="Kids" required type="number"/>
 				</fieldset>
-				<fieldset id="kontact_fs_phone">
-					<label for="kontact_phone">Phone</label>
-					<input id="kontact_phone" name="Phone" type="phone"/>
+				<fieldset id="kontakt_fs_phone">
+					<label for="kontakt_phone">Phone</label>
+					<input id="kontakt_phone" name="Phone" type="phone"/>
 				</fieldset>
-				<fieldset id="kontact_fs_email">
-					<label for="kontact_email">E-Mail Adresse</label>
-					<input id="kontact_email" name="_replyto" required type="email"/>
+				<fieldset id="kontakt_fs_email">
+					<label for="kontakt_email">E-Mail Adresse<span class="kontakt-required">*</span></label>
+					<input id="kontakt_email" name="_replyto" required type="email"/>
 					<input type="hidden" name="Email"/>
 				</fieldset>
-				<fieldset id="kontact_fs_nachricht">
-					<label for="kontact_nachricht">Nachricht</label>
-					<textarea id="kontact_nachricht" name="Nachricht" rows="5"></textarea>
+				<fieldset id="kontakt_fs_nachricht">
+					<label for="kontakt_nachricht">Nachricht</label>
+					<textarea id="kontakt_nachricht" name="Nachricht" rows="5"></textarea>
 				</fieldset>
 				<small><strong>Hinweis</strong>: Felder, die mit * bezeichnet sind, sind Pflichtfelder.</small>
 				<input type="hidden" name="" value="New submission from Schwarzer Kater!"/>
 				<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!"/>
-				<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be contacting you about this enquiry soon."/>
-				<input id="kontact_honey" type="text" name="_honey"/>
-				<fieldset id="kontact_fs_submit">
-					<button id="kontact_submit" type="submit">
-						<div id="kontact_submit-forsend">
-							<svg xmlns="http://www.w3.org/2000/svg" class="kontact_submit-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-								<circle cx="12" cy="12" r="8"/>
-								<path d="M12 9L 15 12L 12 15"/>
-								<path d="M10 12L 15 12"/>
-							</svg>
-						</div>
-						<div hidden id="kontact_submit-sending">
-							<svg xmlns="http://www.w3.org/2000/svg" class="kontact_submit-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-								<circle cx="12" cy="12" r="8"/>
-							</svg>
-						</div>
-						<div hidden id="kontact_submit-success">
-							<svg xmlns="http://www.w3.org/2000/svg" class="kontact_submit-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-								<path d="M5 12l5 5l10 -10"/>
-							</svg>
-						</div>
-						<div hidden id="kontact_submit-warning">
-							<svg xmlns="http://www.w3.org/2000/svg" class="kontact_submit-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-								<path d="M18 6l-12 12"/>
-								<path d="M6 6l12 12"/>
-							</svg>
-						</div>
+				<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be kontakting you about this enquiry soon."/>
+				<input id="kontakt_honey" type="text" name="_honey"/>
+				<fieldset id="kontakt_fs_submit">
+					<button id="kontakt_submit" type="submit">
+						<svg id="kontakt_submit-forsend" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<circle cx="12" cy="12" r="8"/>
+							<path d="M12 9L 15 12L 12 15"/>
+							<path d="M10 12L 15 12"/>
+						</svg>
+						<svg hidden id="kontakt_submit-sending" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<circle cx="12" cy="12" r="8"/>
+						</svg>
+						<svg hidden id="kontakt_submit-success" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							<path d="M5 12l5 5l10 -10"/>
+						</svg>
+						<svg hidden id="kontakt_submit-warning" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							<path d="M18 6l-12 12"/>
+							<path d="M6 6l12 12"/>
+						</svg>
 						<span>Senden</span>
 					</button>
 				</fieldset>
-				<fieldset id="kontact_fs_legend">
-					<legend hidden id="kontact_msg-success">Your data has been sent. We'll contact you about this enquiry soon.</legend>
-					<legend hidden id="kontact_msg-warning">Your data could not been sent. Please try again later.</legend>
+				<fieldset id="kontakt_fs_legend">
+					<legend hidden id="kontakt_msg-success">Your data has been sent. We'll kontakt you about this enquiry soon.</legend>
+					<legend hidden id="kontakt_msg-warning">Your data could not been sent. Please try again later.</legend>
 				</fieldset>
 			</form>
 		</section>
@@ -275,7 +268,7 @@
 		<footer>
 			<div id="footer-logo">
 				<a class="logo_link" href="#heropic">
-					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739.016 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
+					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740.221 175.664" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
 						<title id="logo-title">Schwarzer Kater</title>
 						<use role="presentation" href="logo.svg#logo-h"></use>
 					</svg>
@@ -290,7 +283,7 @@
 					<p>15848 Tauche OT Briescht</p>
 				</address>
 			</div>
-			<dl id="footer_contact">
+			<dl id="footer_kontakt">
 				<dt>Telephone</dt>
 				<dd><a href="tel:"015229216497">0152-29-216-497</a></dd>
 				<dt>E-mail</dt>

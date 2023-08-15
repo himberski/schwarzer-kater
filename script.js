@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function()
 	const formSubmit = 'https://formsubmit.co/ajax/' + key;
 
 	// The form element
-	let form = document.forms.namedItem('kontactform');
+	let form = document.forms.namedItem('kontaktform');
 
 	// Get the required fields
 	let requiredFields = document.querySelectorAll('[required]');
 
 	// Get the date picker elements from the form
-	let arrivalDatepicker = document.getElementById('kontact_arrival');
-	let departureDatepicker = document.getElementById('kontact_departure');
+	let arrivalDatepicker = document.getElementById('kontakt_arrival');
+	let departureDatepicker = document.getElementById('kontakt_departure');
 
 	// Dates for today and tomorrow
 	todayDate = new Date();
@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', function()
 	departureDatepicker.addEventListener('blur', arrivalMaxDate );
 
 	// Elements to show success/errors/processing
-	const submitBtn = document.getElementById('kontact_submit');
-	const forsendIcon = document.getElementById('kontact_submit-forsend');
-	const sendingIcon = document.getElementById('kontact_submit-sending');
-	const successIcon = document.getElementById('kontact_submit-success');
-	const warningIcon = document.getElementById('kontact_submit-warning');
-	const msgSuccess = document.getElementById('kontact_msg-success');
-	const msgWarning = document.getElementById('kontact_msg-warning');
+	const submitBtn = document.getElementById('kontakt_submit');
+	const forsendIcon = document.getElementById('kontakt_submit-forsend');
+	const sendingIcon = document.getElementById('kontakt_submit-sending');
+	const successIcon = document.getElementById('kontakt_submit-success');
+	const warningIcon = document.getElementById('kontakt_submit-warning');
+	const msgSuccess = document.getElementById('kontakt_msg-success');
+	const msgWarning = document.getElementById('kontakt_msg-warning');
 
 	form.addEventListener('submit', (e) =>
 	{
