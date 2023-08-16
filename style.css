@@ -418,11 +418,18 @@ section dl {
 	display: grid;
 	grid-template-rows: minmax(min-content,max-content);
 	align-items: baseline;
+	gap: 0;
 }
 
 section dt {
 	font-weight: 600;
 	color: var(--color-3);
+}
+
+section dd+dt,
+section dd:nth-of-type(n+2) {
+	border-top: 2px solid var(--color-5);
+	padding-top: var(--vgap);
 }
 
 section dd+dt { margin-top: var(--vgap) }
@@ -443,10 +450,7 @@ footer::before {
 
 @media screen and (min-width: 40rem)
 {
-	section dl {
-		grid-template-columns: 1fr 2fr;
-		grid-column-gap: var(--hgap);
-	}
+	section dl { grid-template-columns: repeat(2, 1fr) }
 }
 
 @media screen and (min-width: 45rem)
