@@ -407,8 +407,8 @@ section dd {
 
 section ul,
 section dl {
-	margin-top: var(--vgap);
-	margin-bottom: var(--vgap);
+	margin-top: calc(2 * var(--vgap));
+	margin-bottom: calc(2 * var(--vgap));
 }
 
 section ul { padding-left: var(--hgap) }
@@ -426,13 +426,11 @@ section dt {
 	color: var(--color-3);
 }
 
-section dd+dt,
-section dd:nth-of-type(n+2) {
+section dd+dt {
+	margin-top: var(--vgap);
 	border-top: 2px solid var(--color-5);
 	padding-top: var(--vgap);
 }
-
-section dd+dt { margin-top: var(--vgap) }
 
 section::before,
 footer::before {
@@ -451,6 +449,11 @@ footer::before {
 @media screen and (min-width: 40rem)
 {
 	section dl { grid-template-columns: repeat(2, 1fr) }
+
+	section dd:nth-of-type(n+2) {
+		border-top: 2px solid var(--color-5);
+		padding-top: var(--vgap);
+	}
 }
 
 @media screen and (min-width: 45rem)
@@ -467,12 +470,6 @@ footer::before {
 	}
 
 	h3 { margin-bottom: calc(2 * var(--vgap)) }
-
-	section ul,
-	section dl {
-		margin-top: calc(2 * var(--vgap));
-		margin-bottom: calc(2 * var(--vgap));
-	}
 }
 
 @media screen and (min-width: 60rem)
