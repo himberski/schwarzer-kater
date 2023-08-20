@@ -368,7 +368,7 @@ nav a:hover {
 /* Sections */
 
 main { margin-top: calc(2 * var(--vgap)) }
-section { margin-top: calc(4 * var(--vgap)) }
+section { margin-top: var(--vgap) }
 
 h2,
 h3 {
@@ -386,6 +386,16 @@ h3 {
 	font-size: var(--h3size);
 	font-weight: 600;
 	color: var(--color-2);
+}
+
+h3 span {
+	font-weight: 200;
+	color: var(--color-3);
+}
+
+h3 span::before {
+	content: '\2014';
+	margin-right: .25em;
 }
 
 main p,
@@ -440,7 +450,6 @@ footer::before {
 	display: block;
 	width: 100%;
 	height: var(--gap);
-	margin-bottom: calc(4 * var(--vgap));
 	content: '';
 	background-image: url(logo.svg#oldlogo-view), linear-gradient(to bottom, transparent calc(var(--gap) / 2 - 2px), var(--color-4) 2px, transparent calc(var(--gap) / 2)), linear-gradient(to bottom, transparent calc(var(--gap) / 2 - 2px), var(--color-4) 2px, transparent calc(var(--gap) / 2));
 	background-repeat: no-repeat;
@@ -448,6 +457,9 @@ footer::before {
 	background-size: calc((5 * var(--gap)) / 3) var(--gap), calc(50% - 2 * var(--gap)) var(--gap), calc(50% - 2 * var(--gap)) var(--gap);
 	opacity: .75;
 }
+
+section::before { margin-bottom: var(--vgap) }
+footer::before { margin-bottom: calc(4 * var(--vgap)) }
 
 @media screen and (min-width: 40rem)
 {
@@ -462,6 +474,16 @@ footer::before {
 	}
 }
 
+@media screen and (min-width: 30rem)
+{
+	main.textwrapper {
+		margin-left: calc(2 * var(--hgap));
+		margin-right: calc(2 * var(--hgap));
+	}
+
+	main.textwrapper { text-align: center }
+}
+
 @media screen and (min-width: 45rem)
 {
 	main.textwrapper,
@@ -470,11 +492,7 @@ footer::before {
 		margin-right: var(--hgap);
 	}
 
-	main.textwrapper {
-		margin-top: calc(3 * var(--vgap));
-		text-align: center;
-	}
-
+	main.textwrapper { margin-top: calc(3 * var(--vgap)) }
 	h3 { margin-bottom: calc(2 * var(--vgap)) }
 }
 
@@ -515,55 +533,55 @@ footer::before {
 	section ul { padding-left: calc(var(--hgap) / 2) }
 }
 
-/* Beschreibung */
+/* Wohnungen */
 
-.beschreibung_item+.beschreibung_item { margin-top: calc(4 * var(--vgap)) }
-.beschreibung-image { display: none }
+.wohnungen_item+.wohnungen_item { margin-top: calc(4 * var(--vgap)) }
+.wohnungen-image { display: none }
 
-.beschreibung-images {
+.wohnungen-images {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
 	list-style: none;
 }
 
-@media screen and (min-width: 40rem)
+@media screen and (min-width: 20rem)
 {
-	.beschreibung-image { display: block }
+	.wohnungen-image { display: block }
 
-	.beschreibung-image,
-	.beschreibung-images li { flex: 1 1 auto }
+	.wohnungen-image,
+	.wohnungen-images li { flex: 1 1 auto }
 
-	.beschreibung-images {
+	.wohnungen-images {
 		display: flex;
 		flex-flow: row nowrap;
 		gap: calc(var(--hgap) / 4);
 		margin-top: calc(var(--hgap) / 4);
 	}
 
-	.beschreibung-images li {
+	.wohnungen-images li {
 		overflow: hidden;
 		cursor: zoom-in;
 		transition: opacity var(--transtime) var(--easing);
 	}
 
-	.beschreibung-images li:hover { opacity: .75 }
+	.wohnungen-images li:hover { opacity: .75 }
 }
 
 @media screen and (min-width: 45rem)
 {
-	.beschreibung_item {
+	.wohnungen_item {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0 var(--hgap);
 	}
 
-	.beschreibung-gallery,
-	.beschreibung-info { grid-row: 1/2 }
+	.wohnungen-gallery,
+	.wohnungen-info { grid-row: 1/2 }
 
-	.beschreibung-info { margin-top: 0 }
-	.beschreibung_item:nth-child(even)>.beschreibung-gallery { grid-column: 1/2 }
-	.beschreibung_item:nth-child(even)>.beschreibung-info { grid-column: 2/3 }
+	.wohnungen-info { margin-top: 0 }
+	.wohnungen_item:nth-child(even)>.wohnungen-gallery { grid-column: 1/2 }
+	.wohnungen_item:nth-child(even)>.wohnungen-info { grid-column: 2/3 }
 }
 
 /* Über uns */
@@ -867,7 +885,6 @@ footer {
 }
 
 #footer_info p { margin: 0 }
-#footer_info>p { color: var(--color-2) }
 #footer_info address { font-style: normal }
 
 #footer_kontakt dt {
@@ -924,7 +941,7 @@ footer {
 
 @media screen and (min-width: 30rem)
 {
-	#footer_info address,
+	#footer_info p,
 	#footer_kontakt dd { font-size: calc(.9 * var(--textsize)) }
 
 	#footer_info>p { display: inline }

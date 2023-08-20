@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function()
 {
 	// The hash-like string to send the emails to, from formsubmit.co
-	const key = '7e9e403a0b910a85054275ec2df01e59';
+	const key = 'post@schwarzer-kater.de';
 	// The formsubmit.co URL where the data is being sent to
 	const formSubmit = 'https://formsubmit.co/ajax/' + key;
 
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function()
 	let requiredFields = document.querySelectorAll('[required]');
 
 	// Get the date picker elements from the form
-	let arrivalDatepicker = document.getElementById('kontakt_arrival');
-	let departureDatepicker = document.getElementById('kontakt_departure');
+	let arrivalDatepicker = document.getElementById('kontakt_anreise');
+	let departureDatepicker = document.getElementById('kontakt_abreise');
 
 	// Dates for today and tomorrow
 	todayDate = new Date();
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function()
 			let arrivalDate = new Date(arrivalVal);
 			let departureDate = new Date(departureVal);
 			let dateDifference = departureDate.getTime() - arrivalDate.getTime();
-			formData.set('Nights', Math.ceil(dateDifference / (1000 * 3600 * 24)));
+			formData.set('Nätchen', Math.ceil(dateDifference / (1000 * 3600 * 24)));
 
 			// Set value for the 'actual' email field
 			formData.set('Email', formData.get('_replyto'))
@@ -114,12 +114,12 @@ document.addEventListener('DOMContentLoaded', function()
 
 	/* Interactive galleries for the apartment pictures */
 
-	const apartmentGalleries = document.querySelectorAll('.beschreibung-gallery');
+	const apartmentGalleries = document.querySelectorAll('.wohnungen-gallery');
 
 	apartmentGalleries.forEach( gallery =>
 	{
-		let activeImg = gallery.querySelector('.beschreibung-image>img');
-		let images = gallery.querySelectorAll('.beschreibung-images img');
+		let activeImg = gallery.querySelector('.wohnungen-image>img');
+		let images = gallery.querySelectorAll('.wohnungen-images img');
 
 		images.forEach( image =>
 		{
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 	});
 
-	/* This thing loads the map */
+	/* This thing loads and displays the map */
 
 	async function initMap()
 	{
@@ -194,4 +194,16 @@ document.addEventListener('DOMContentLoaded', function()
 	}
 
 	initMap();
+
+	/* This bit makes the menu to hide when clicking one of its items */
+
+	const menu = document.getElementById('menu_items');
+	const menu_toggle = document.getElementById('menu_toggle');
+	const menu_links = menu.querySelectorAll('a');
+
+	menu_links.forEach(link =>
+	{
+		link.addEventListener('click', () => { menu_toggle.checked = false });
+	});
+
 })
