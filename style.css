@@ -411,8 +411,8 @@ nav a:hover {
 
 /* Sections */
 
-main { margin-top: calc(2 * var(--vgap)) }
-section { margin-top: var(--vgap) }
+main,
+section { margin-top: calc(2 * var(--vgap)) }
 
 h2,
 h3 {
@@ -507,14 +507,8 @@ footer::before {
 	opacity: .75;
 }
 
-section::before { margin-bottom: var(--vgap) }
+section::before { margin-bottom: calc(2 * var(--vgap)) }
 footer::before { margin-bottom: calc(4 * var(--vgap)) }
-
-@media (prefers-color-scheme: dark)
-{
-	section::before,
-	footer::before { }
-}
 
 @media screen and (min-width: 40rem)
 {
@@ -932,7 +926,7 @@ footer {
 
 #footer-logo svg {
 	margin: 0 auto;
-	max-height: calc(2 * var(--hgap));
+	max-height: calc(1.5 * var(--hgap));
 }
 
 #footer_info {
@@ -941,15 +935,7 @@ footer {
 	width: 100%;
 }
 
-#footer_info h4,
 #footer_info address { margin: var(--vgap) 0 }
-
-#footer_info h4 {
-	font-size: var(--textsize);
-	font-weight: 200;
-	font-variant-caps: all-small-caps;
-	letter-spacing: .15em;
-}
 
 #footer_info p { margin: 0 }
 #footer_info address { font-style: normal }
@@ -1049,8 +1035,6 @@ footer {
 		text-align: left;
 	}
 
-	#footer_info h4 { margin-top: 0 }
-	
 	#footer_kontakt {
 		grid-row: 3/4;
 		grid-column: 2/3;
@@ -1084,12 +1068,12 @@ footer {
 
 @media screen and (min-width: 100rem)
 {
-	#footer-logo svg { max-height: var(--hgap) }
+	#footer-logo svg { max-height: calc(.75 * var(--hgap)) }
 }
 
 @media screen and (min-width: 120rem)
 {
-	#footer-logo svg { max-height: calc(.75 * var(--hgap)) }
+	#footer-logo svg { max-height: calc(.5 * var(--hgap)) }
 }
 
 @font-face{
