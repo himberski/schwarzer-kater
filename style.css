@@ -98,6 +98,7 @@ body {
 
 a {
 	text-decoration-skip-ink: auto;
+	text-decoration-thickness: 1px;
 	text-underline-offset: .125em;
 }
 
@@ -217,6 +218,7 @@ a {
 @media screen and (min-width: 45rem)
 {
 	.textwrapper { margin: 0 }
+	.textlegal { margin-bottom: calc(3 * var(--vgap)) }
 }
 
 @media screen and (min-width: 60rem)
@@ -225,6 +227,11 @@ a {
 		margin-left: 0;
 		margin-right: 0;
 	}
+}
+
+@media screen and (min-width: 80rem)
+{
+	.textlegal { margin-bottom: calc(4 * var(--vgap)) }
 }
 
 /* Header */
@@ -415,7 +422,8 @@ main,
 section { margin-top: calc(2 * var(--vgap)) }
 
 h2,
-h3 {
+h3,
+h4 {
 	margin-bottom: var(--vgap);
 	line-height: 1.25;
 }
@@ -447,6 +455,20 @@ h3 span::before {
 	margin-right: .25em;
 }
 
+h4 {
+	margin-top: 2em;
+	font-size: var(--capsize);
+	font-weight: 600;
+	color: var(--color-2);
+}
+
+h5 {
+	margin-top: 2em;
+	font-size: var(--textsize);
+	font-weight: 400;
+	color: var(--color-2);
+}
+
 main p,
 section p,
 section li,
@@ -463,6 +485,9 @@ section dd {
 	font-weight: 300;
 	color: var(--color-2);
 }
+
+main p+p,
+main p+ol { margin-top: 1em }
 
 section ul,
 section dl {
@@ -531,6 +556,7 @@ footer::before { margin-bottom: calc(4 * var(--vgap)) }
 	}
 
 	main.textwrapper { text-align: center }
+	main.textwrapper.textlegal { text-align: left }
 }
 
 @media screen and (min-width: 45rem)
@@ -909,6 +935,52 @@ legend {
 	form { gap: var(--vgap) calc(var(--hgap) / 2) }
 }
 
+/* Legal */
+
+.textlegal h5 {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.textlegal li>h5 {
+	display: inline-block;
+	margin-left: .5em;
+}
+
+.textlegal ul,
+.textlegal dt,
+.textlegal ol+p,
+.textlegal dl+p { margin-top: 1em }
+
+.textlegal ul { list-style: disc inside none }
+.textlegal ol { list-style: lower-alpha inside none }
+
+.textlegal ul li,
+.textlegal ol ol li {
+	line-height: 1.5;
+	font-size: var(--textsize);
+	font-weight: 300;
+	color: var(--color-2);
+}
+
+.textlegal ol ol { margin-left: var(--hgap) }
+.textlegal ol ol li { margin-top: 1em }
+
+.textlegal ol li::marker,
+.textlegal ul li::marker { color: var(--color-3) }
+
+.textlegal ol li::marker {
+	float: left;
+	font-weight: 600;
+}
+
+.textlegal dt,
+.textlegal>ol>li::marker { font-size: var(--textsize) }
+
+.textlegal dt { color: var(--color-2) }
+
+.textlegal a { color: var(--accnt-1) }
+
 /* Footer */
 
 footer {
@@ -967,16 +1039,25 @@ footer {
 	#footer_kontakt a { color: var(--color-2) }
 }
 
+#footer_legal,
 #footer_copyright,
 #footer_me {
 	display: block;
 	line-height: 1.5;
 }
 
+#footer_legal,
 #footer_copyright {
-	margin-top: calc(2 * var(--vgap));
 	font-size: .85em;
 	color: var(--color-2);
+}
+
+#footer_legal { margin-top: calc(2 * var(--vgap)) }
+#footer_copyright { margin-top: var(--vgap) }
+
+#footer_legal a {
+	color: var(--color-2);
+	text-decoration-color: var(--color-4);
 }
 
 #footer_me {
@@ -1042,13 +1123,18 @@ footer {
 		text-align: left;
 	}
 	
-	#footer_copyright {
+	#footer_legal {
 		grid-row: 4/5;
 		grid-column: 1/3;
 	}
 	
-	#footer_me {
+	#footer_copyright {
 		grid-row: 5/6;
+		grid-column: 1/3;
+	}
+	
+	#footer_me {
+		grid-row: 6/7;
 		grid-column: 1/3;
 	}
 }
