@@ -943,7 +943,7 @@ legend {
 }
 
 .textlegal li>h5 {
-	display: inline-block;
+	display: inline;
 	margin-left: .5em;
 }
 
@@ -963,16 +963,19 @@ legend {
 	color: var(--color-2);
 }
 
+.textlegal ol li { margin-top: 1em }
 .textlegal ol ol { margin-left: var(--hgap) }
-.textlegal ol ol li { margin-top: 1em }
 
 .textlegal ol li::marker,
 .textlegal ul li::marker { color: var(--color-3) }
 
 .textlegal ol li::marker {
+	display: inline;
 	float: left;
 	font-weight: 600;
 }
+
+.textlegal>ol>li>p { margin-top: 1em }
 
 .textlegal dt,
 .textlegal>ol>li::marker { font-size: var(--textsize) }
