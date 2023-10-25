@@ -2,16 +2,12 @@
 <html lang="de">
 	<head>
 		<title>Schwarzer Kater</title>
-		<meta charset="utf-8"/>
-		<meta name="description" content="Schwarzer Kater"/>
-		<meta name="keywords" content=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<meta http-equiv='cache-control' content='no-cache'/>
-		<meta http-equiv='expires' content='0'/>
-		<meta http-equiv='pragma' content='no-cache'/>
-		<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+		<meta charset="utf-8">
+		<meta name="description" content="Schwarzer Kater">
+		<meta name="keywords" content="">
+		<link rel="icon" href="favicon.svg" type="image/svg+xml">
 		<link rel="manifest" href="/manifest.webmanifest">
-		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="style.css">
 		<script defer src="script.js"></script>
 	</head>
 
@@ -27,7 +23,7 @@
 				</a>
 			</h1>
 			<nav>
-				<input type="checkbox" id="menu_toggle"/>
+				<input type="checkbox" id="menu_toggle">
 				<label for="menu_toggle">
 					<svg xmlns="http://www.w3.org/2000/svg" aria-label="Menu icon" role="img" viewBox="0 0 40 40">
 						<rect width="28" height="2" x="12" y="11" fill="currentColor"></rect>
@@ -40,6 +36,7 @@
 					<li><a href="#wohnungen">Wohnungen</a></li>
 					<li><a href="#einzelheiten">Einzelheiten</a></li>
 					<li><a href="#uberuns">Über uns</a></li>
+					<li><a href="#honig">Honig</a></li>
 					<li><a href="#anreise">Anreise</a></li>
 					<li><a href="#kontakt">Kontakt</a></li>
 				</ul>
@@ -48,7 +45,7 @@
 
 		<!-- Hero image -->
 		<div id="heropic" class="imgwrapper">
-			<img src="img/hero.jpg" alt="Schwarzer Kater"/>
+			<img src="img/hero.jpg" alt="Schwarzer Kater" loading="lazy">
 		</div>
 
 		<!-- Intro text -->
@@ -60,7 +57,7 @@
 
 		<!-- Wohnungs -->
 		<section id="wohnungen">
-			<article class="wohnungen_item">
+			<div class="wohnungen_item">
 				<div class="wohnungen-info textwrapper">
 					<h3>Wohnung 1 <span>40 m<sup>2</sup></span></h3>
 					<ul>
@@ -70,17 +67,17 @@
 				</div>
 				<div class="wohnungen-gallery">
 					<div class="wohnungen-image imgwrapper">
-						<img src="img/wohnung1-pic1.jpg" alt="Photo 2 of Wohnung 1"/>
+						<img src="img/wohnung1-pic1.jpg" alt="Photo 2 of Wohnung 1" loading="lazy">
 					</div>
 					<ul class="wohnungen-images">
-						<li class="imgwrapper"><img src="img/wohnung1-pic1.jpg" alt="Photo 2 of Wohnung 1"/></li>
-						<li class="imgwrapper"><img src="img/wohnung1-pic2.jpg" alt="Photo 2 of Wohnung 1"/></li>
-						<li class="imgwrapper"><img src="img/wohnung1-pic3.jpg" alt="Photo 3 of Wohnung 1"/></li>
+						<li class="imgwrapper"><img src="img/wohnung1-pic1.jpg" alt="Photo 2 of Wohnung 1" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung1-pic2.jpg" alt="Photo 2 of Wohnung 1" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung1-pic3.jpg" alt="Photo 3 of Wohnung 1" loading="lazy"></li>
 					</ul>
 				</div>
-			</article>
+			</div>
 			
-			<article class="wohnungen_item">
+			<div class="wohnungen_item">
 				<div class="wohnungen-info textwrapper">
 					<h3>Wohnung 2 <span>30 m<sup>2</sup></span></h3>
 					<ul>
@@ -90,17 +87,17 @@
 				</div>
 				<div class="wohnungen-gallery">
 					<div class="wohnungen-image imgwrapper">
-						<img src="img/wohnung2-pic1.jpg" alt="Photo 1 of Wohnung 2"/>
+						<img src="img/wohnung2-pic1.jpg" alt="Photo 1 of Wohnung 2" loading="lazy">
 					</div>
 					<ul class="wohnungen-images">
-						<li class="imgwrapper"><img src="img/wohnung2-pic1.jpg" alt="Photo 1 of Wohnung 2"/></li>
-						<li class="imgwrapper"><img src="img/wohnung2-pic2.jpg" alt="Photo 2 of Wohnung 2"/></li>
-						<li class="imgwrapper"><img src="img/wohnung2-pic3.jpg" alt="Photo 3 of Wohnung 2"/></li>
+						<li class="imgwrapper"><img src="img/wohnung2-pic1.jpg" alt="Photo 1 of Wohnung 2" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung2-pic2.jpg" alt="Photo 2 of Wohnung 2" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung2-pic3.jpg" alt="Photo 3 of Wohnung 2" loading="lazy"></li>
 					</ul>
 				</div>
-			</article>
+			</div>
 
-			<article class="wohnungen_item">
+			<div class="wohnungen_item">
 				<div class="wohnungen-info textwrapper">
 					<h3>Wohnung 3 <span>24 m<sup>2</sup></span></h3>
 					<ul>
@@ -109,17 +106,17 @@
 				</div>
 				<div class="wohnungen-gallery">
 					<div class="wohnungen-image imgwrapper">
-						<img src="img/wohnung3-pic1.jpg" alt="Photo 1 of Wohnung 3"/>
+						<img src="img/wohnung3-pic1.jpg" alt="Photo 1 of Wohnung 3" loading="lazy">
 					</div>
 					<ul class="wohnungen-images">
-						<li class="imgwrapper"><img src="img/wohnung3-pic1.jpg" alt="Photo 1 of Wohnung 3"/></li>
-						<li class="imgwrapper"><img src="img/wohnung3-pic2.jpg" alt="Photo 2 of Wohnung 3"/></li>
-						<li class="imgwrapper"><img src="img/wohnung3-pic3.jpg" alt="Photo 3 of Wohnung 3"/></li>
+						<li class="imgwrapper"><img src="img/wohnung3-pic1.jpg" alt="Photo 1 of Wohnung 3" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung3-pic2.jpg" alt="Photo 2 of Wohnung 3" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung3-pic3.jpg" alt="Photo 3 of Wohnung 3" loading="lazy"></li>
 					</ul>
 				</div>
-			</article>
+			</div>
 
-			<article class="wohnungen_item">
+			<div class="wohnungen_item">
 				<div class="wohnungen-info textwrapper">
 					<h3>Wohnung 4 <span>19 m<sup>2</sup></span></h3>
 					<ul>
@@ -128,15 +125,15 @@
 				</div>
 				<div class="wohnungen-gallery">
 					<div class="wohnungen-image imgwrapper">
-						<img src="img/wohnung4-pic1.jpg" alt="Photo 1 of Wohnung 4"/>
+						<img src="img/wohnung4-pic1.jpg" alt="Photo 1 of Wohnung 4" loading="lazy">
 					</div>
 					<ul class="wohnungen-images">
-						<li class="imgwrapper"><img src="img/wohnung4-pic1.jpg" alt="Photo 1 of Wohnung 4"/></li>
-						<li class="imgwrapper"><img src="img/wohnung4-pic2.jpg" alt="Photo 2 of Wohnung 4"/></li>
-						<li class="imgwrapper"><img src="img/wohnung4-pic3.jpg" alt="Photo 3 of Wohnung 4"/></li>
+						<li class="imgwrapper"><img src="img/wohnung4-pic1.jpg" alt="Photo 1 of Wohnung 4" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung4-pic2.jpg" alt="Photo 2 of Wohnung 4" loading="lazy"></li>
+						<li class="imgwrapper"><img src="img/wohnung4-pic3.jpg" alt="Photo 3 of Wohnung 4" loading="lazy"></li>
 					</ul>
 				</div>
-			</article>
+			</div>
 		</section>
 
 		<!-- Einzelheiten -->
@@ -166,11 +163,21 @@
 		<section id="uberuns">
 			<div id="uberuns-info" class="textwrapper">
 				<h3>Über uns</h3>
-				<p>Wir sind Maciej Malinowski und Mara Rosenbauer mit unserer Tochter Maia und Hündin Juna. Auf der Suche nach unberührter Natur, endloser Freiheit und dem echten Landleben sind wir nach Briescht gezogen. Hier haben wir unser Paradies
-				gefunden. Und betreiben nun das Ferienhaus Schwarzer Kater.</p>
+				<p>Wir sind Maciej Malinowski und Mara Rosenbauer mit unserer Tochter Maia und Hündin Juna. Auf der Suche nach unberührter Natur, endloser Freiheit und dem echten Landleben sind wir nach Briescht gezogen. Hier haben wir unser Paradies gefunden. Und betreiben nun das Ferienhaus Schwarzer Kater.</p>
 			</div>
 			<div id="uberuns-img" class="imgwrapper">
-				<img src="img/uber-uns.jpg" alt="Uber Schwarzer Kater"/>
+				<img src="img/uber-uns.jpg" alt="Uber Schwarzer Kater" loading="lazy">
+			</div>
+		</section>
+
+		<!-- Honig -->
+		<section id="honig">
+			<div id="honig-info" class="textwrapper">
+				<h3>Honig</h3>
+				<p>Ein Aufenthalt in unserem Ferienhaus kann Wunder wirken. Genauso wie Honig. Deshalb gibt es Honig produziert durch Martin Wierer direkt nebenan im Schwarzen Kater 1.</p>
+			</div>
+			<div id="honig-img" class="imgwrapper">
+				<img src="img/honig.jpg" alt="Honig" loading="lazy">
 			</div>
 		</section>
 
@@ -197,39 +204,38 @@
 			<form id="kontaktform">
 				<fieldset id="kontakt_fs_anreise">
 					<label for="kontakt_anreise">Anreise<span class="kontakt-required">*</span></label>
-					<input id="kontakt_anreise" name="Anreise" required type="date"/>
+					<input id="kontakt_anreise" name="Anreise" required type="date">
 				</fieldset>
 				<fieldset id="kontakt_fs_abreise">
 					<label for="kontakt_abreise">Abreise<span class="kontakt-required">*</span></label>
-					<input id="kontakt_abreise" name="Abreise" required type="date"/>
+					<input id="kontakt_abreise" name="Abreise" required type="date">
 				</fieldset>
-				<input type="hidden" name="Nätchen" value="0"/>
+				<input type="hidden" name="Nätchen" value="0">
 				<fieldset id="kontakt_fs_adults">
 					<label for="kontakt_adults">Anzahl Erwachsener<span class="kontakt-required">*</span></label>
-					<input id="kontakt_adults" name="Anzahl Erwachsener" required type="number"/>
+					<input id="kontakt_adults" name="Anzahl Erwachsener" required type="number">
 				</fieldset>
 				<fieldset id="kontakt_fs_kids">
 					<label for="kontakt_kids">Anzahl Kinder</label>
-					<input id="kontakt_kids" name="Anzahl Kinder" type="number"/>
+					<input id="kontakt_kids" name="Anzahl Kinder" type="number">
 				</fieldset>
 				<fieldset id="kontakt_fs_phone">
 					<label for="kontakt_phone">Telefonnummer</label>
-					<input id="kontakt_phone" name="Telefonnummer" type="phone"/>
+					<input id="kontakt_phone" name="Telefonnummer" type="tel" value="">
 				</fieldset>
 				<fieldset id="kontakt_fs_email">
 					<label for="kontakt_email">E-Mail Adresse<span class="kontakt-required">*</span></label>
-					<input id="kontakt_email" name="_replyto" required type="email"/>
-					<input type="hidden" name="Email"/>
+					<input id="kontakt_email" name="_replyto" required type="email">
+					<input type="hidden" name="Email">
 				</fieldset>
 				<fieldset id="kontakt_fs_nachricht">
 					<label for="kontakt_nachricht">Nachricht</label>
 					<textarea id="kontakt_nachricht" name="Nachricht" rows="5"></textarea>
 				</fieldset>
 				<small><strong>Hinweis</strong>: Felder, die mit * bezeichnet sind, sind Pflichtfelder.</small>
-				<input type="hidden" name="" value="New submission from Schwarzer Kater!"/>
-				<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!"/>
-				<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be kontakting you about this enquiry soon."/>
-				<input id="kontakt_honey" type="text" name="_honey"/>
+				<input type="hidden" name="_subject" value="New submission from Schwarzer Kater!">
+				<input type="hidden" name="_autoresponse" value="Thank you for reaching us out! We'll be kontakting you about this enquiry soon.">
+				<input id="kontakt_honey" type="text" name="_honey">
 				<fieldset id="kontakt_fs_submit">
 					<button id="kontakt_submit" type="submit">
 						<svg id="kontakt_submit-forsend" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -237,14 +243,14 @@
 							<path d="M12 9L 15 12L 12 15"/>
 							<path d="M10 12L 15 12"/>
 						</svg>
-						<svg hidden id="kontakt_submit-sending" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<svg aria-hidden="true" id="kontakt_submit-sending" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 							<circle cx="12" cy="12" r="8"/>
 						</svg>
-						<svg hidden id="kontakt_submit-success" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<svg aria-hidden="true" id="kontakt_submit-success" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 							<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 							<path d="M5 12l5 5l10 -10"/>
 						</svg>
-						<svg hidden id="kontakt_submit-warning" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<svg aria-hidden="true" id="kontakt_submit-warning" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 							<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 							<path d="M18 6l-12 12"/>
 							<path d="M6 6l12 12"/>
@@ -253,8 +259,8 @@
 					</button>
 				</fieldset>
 				<fieldset id="kontakt_fs_legend">
-					<legend hidden id="kontakt_msg-success">Your data has been sent. We'll kontakt you about this enquiry soon.</legend>
-					<legend hidden id="kontakt_msg-warning">Your data could not been sent. Please try again later.</legend>
+					<span hidden id="kontakt_msg-success">Your data has been sent. We'll kontakt you about this enquiry soon.</span>
+					<span hidden id="kontakt_msg-warning">Your data could not been sent. Please try again later.</span>
 				</fieldset>
 			</form>
 		</section>
@@ -262,8 +268,8 @@
 		<footer>
 			<div id="footer-logo">
 				<a class="logo_link" href="#heropic">
-					<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1157.5774 175.6643" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
-						<title id="logo-title">Schwarzer Kater</title>
+					<svg id="flogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1157.5774 175.6643" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo-title">
+						<title id="flogo-title">Schwarzer Kater</title>
 						<use role="presentation" href="logo.svg#logo-h"></use>
 					</svg>
 				</a>
@@ -288,9 +294,8 @@
 			<span id="footer_legal"><a href="datenschutzerklarung.html">Datenschutzerklarung</a> &mdash; <a href="impressum.html">Impressum</a></span>
 			<span id="footer_copyright">&#169; Ferienhaus Schwarzer Kater</span>
 			<span id="footer_me">Designed and hancoded with love <a href="https://miler.codeberg.page/">at 2800 meters above sea level</a></span>
-			</div>
 		</footer>
+		<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+	    ({key: "AIzaSyA7Ta2xr0T2qOhK9FdvD421yg8AFOvXrDg", v: "beta"});</script><!-- Map API Key -->
 	</body>
-	<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-    ({key: "AIzaSyA7Ta2xr0T2qOhK9FdvD421yg8AFOvXrDg", v: "beta"});</script><!-- Map API Key -->
 </html>
