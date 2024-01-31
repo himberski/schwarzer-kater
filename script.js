@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function()
 			// Set value for the 'actual' email field
 			formData.set('Email', formData.get('_replyto'))
 
-			sendingIcon.removeAttribute('hidden');
-			forsendIcon.setAttribute('hidden', '');
-			if (successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
-			if (warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
-			if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
-			if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+			sendingIcon.removeAttribute('aria-hidden');
+			forsendIcon.setAttribute('aria-hidden', 'true');
+			if (successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
+			if (warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
+			if (msgSuccess.getAttribute('aria-hidden')) msgSuccess.setAttribute('aria-hidden', 'true');
+			if (msgWarning.getAttribute('aria-hidden')) msgWarning.setAttribute('aria-hidden', 'true');
 			
 			fetch(formSubmit,
 			{
@@ -84,20 +84,20 @@ document.addEventListener('DOMContentLoaded', function()
 			.then(data =>
 			{
 				console.log(data);
-				successIcon.removeAttribute('hidden');
-				if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
-				if (!warningIcon.getAttribute('hidden')) warningIcon.setAttribute('hidden', '');
-				msgSuccess.removeAttribute('hidden');
-				if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+				successIcon.removeAttribute('aria-hidden');
+				if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
+				if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
+				msgSuccess.removeAttribute('aria-hidden');
+				if (msgWarning.getAttribute('aria-hidden')) msgWarning.setAttribute('aria-hidden', 'true');
 			})
 			.catch(error =>
 			{
 				console.log(error);
-				warningIcon.removeAttribute('hidden');
-				if (!sendingIcon.getAttribute('hidden')) sendingIcon.setAttribute('hidden', '');
-				if (!successIcon.getAttribute('hidden')) successIcon.setAttribute('hidden', '');
-				msgWarning.removeAttribute('hidden');
-				if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+				warningIcon.removeAttribute('aria-hidden');
+				if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
+				if (!successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
+				msgWarning.removeAttribute('aria-hidden');
+				if (!msgSuccess.getAttribute('aria-hidden')) msgSuccess.setAttribute('aria-hidden', 'true');
 			});
 		}
 	});
