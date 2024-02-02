@@ -48,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function()
 	const warningIcon = document.getElementById('kontakt_submit-warning');
 	const msgSuccess = document.getElementById('kontakt_msg-success');
 	const msgWarning = document.getElementById('kontakt_msg-warning');
+	const msgWaiting = document.getElementById('kontakt_msg-waiting');
 
-	form.addEventListener('submit', (e) =>
+	async function sendData (data)
 	{
 		if (form.reportValidity())
 		{
@@ -68,12 +69,13 @@ document.addEventListener('DOMContentLoaded', function()
 			// Set value for the 'actual' email field
 			formData.set('Email', formData.get('_replyto'))
 
+			msgWaiting.removeAttribute('hidden');
 			sendingIcon.removeAttribute('aria-hidden');
 			forsendIcon.setAttribute('aria-hidden', 'true');
-			if (successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
-			if (warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
-			if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
-			if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+			if (!successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
+			if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
+			if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+			if (!msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
 			
 			fetch(formSubmit,
 			{
@@ -84,11 +86,27 @@ document.addEventListener('DOMContentLoaded', function()
 			.then(data =>
 			{
 				console.log(data);
-				successIcon.removeAttribute('aria-hidden');
-				if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
-				if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
-				msgSuccess.removeAttribute('hidden');
-				if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+
+				if (data.sucess === 'true')
+				{
+					successIcon.removeAttribute('aria-hidden');
+					if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
+					if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
+					msgSuccess.removeAttribute('hidden');
+					if (!msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+					if (!msgWaiting.getAttribute('hidden')) msgWaiting.setAttribute('hidden', '');
+				}
+
+				else
+				{
+					warningIcon.removeAttribute('aria-hidden');
+					if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
+					if (!successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
+					msgWarning.removeAttribute('hidden');
+					msgWarning.textContent = data.message;
+					if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+					if (!msgWaiting.getAttribute('hidden')) msgWaiting.setAttribute('hidden', '');
+				}
 			})
 			.catch(error =>
 			{
@@ -98,18 +116,16 @@ document.addEventListener('DOMContentLoaded', function()
 				if (!successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
 				msgWarning.removeAttribute('hidden');
 				if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+				if (!msgWaiting.getAttribute('hidden')) msgWaiting.setAttribute('hidden', '');
 			});
 		}
-	});
+	}
 
-	submitBtn.addEventListener('click', (e) =>
+	submitBtn.addEventListener('click', () =>
 	{
-		e.stopPropagation();
-		e.preventDefault();
-
-		domEvent = document.createEvent('Event', { cancellable: true });
-		domEvent.initEvent('submit', false, true);
-		e.target.closest('form').dispatchEvent(domEvent);
+		event.stopPropagation();
+		event.preventDefault();
+		sendData();
 	});
 
 	/* Interactive galleries for the apartment pictures */
