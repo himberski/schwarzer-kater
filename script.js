@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function()
 			{
 				console.log(data);
 
-				if (data.sucess === 'true')
+				if (data.success === 'true')
 				{
 					successIcon.removeAttribute('aria-hidden');
 					if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
