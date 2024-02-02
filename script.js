@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function()
 			forsendIcon.setAttribute('aria-hidden', 'true');
 			if (successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
 			if (warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
-			if (msgSuccess.getAttribute('aria-hidden')) msgSuccess.setAttribute('aria-hidden', 'true');
-			if (msgWarning.getAttribute('aria-hidden')) msgWarning.setAttribute('aria-hidden', 'true');
+			if (msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+			if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
 			
 			fetch(formSubmit,
 			{
@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function()
 				successIcon.removeAttribute('aria-hidden');
 				if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
 				if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
-				msgSuccess.removeAttribute('aria-hidden');
-				if (msgWarning.getAttribute('aria-hidden')) msgWarning.setAttribute('aria-hidden', 'true');
+				msgSuccess.removeAttribute('hidden');
+				if (msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
 			})
 			.catch(error =>
 			{
@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function()
 				warningIcon.removeAttribute('aria-hidden');
 				if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
 				if (!successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
-				msgWarning.removeAttribute('aria-hidden');
-				if (!msgSuccess.getAttribute('aria-hidden')) msgSuccess.setAttribute('aria-hidden', 'true');
+				msgWarning.removeAttribute('hidden');
+				if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 			});
 		}
 	});
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function()
 		e.stopPropagation();
 		e.preventDefault();
 
-		domEvent = document.createEvent('Event');
+		domEvent = document.createEvent('Event', { cancellable: true });
 		domEvent.initEvent('submit', false, true);
 		e.target.closest('form').dispatchEvent(domEvent);
 	});
