@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function()
 	const msgWarning = document.getElementById('kontakt_msg-warning');
 	const msgWaiting = document.getElementById('kontakt_msg-waiting');
 
-	async function sendData (data)
+	async function sendData(data)
 	{
 		if (form.reportValidity())
 		{
