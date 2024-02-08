@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function()
 {
 	// The hash-like string to send the emails to, from formsubmit.co
-	const key = '7735aaa42bf8448ef22dd6ca61b2c88b';
+	const key = 'ebdd73f4e92d9a99a2c0c52428d8907a';
 	// The formsubmit.co URL where the data is being sent to
-	const formSubmit = 'https://formsubmit.co/ajax/' + key method="POST";
+	const formSubmit = 'https://formsubmit.co/el/marara' + key;
 
 	// The form element
 	let form = document.forms.namedItem('kontaktform');
