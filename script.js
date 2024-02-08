@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function()
 {
 	// The formsubmit.co URL where the data is being sent to
-	const formSubmit = 'maciej_malinowski@yahoo.de';
+	const formSubmit = "https://formsubmit.co/maciej_malinowski@yahoo.de";
 
 	// The form element
 	let form = document.forms.namedItem('kontaktform');
