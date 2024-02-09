@@ -1,15 +1,10 @@
 document.addEventListener('DOMContentLoaded', function()
 {
-	// The hash-like string to send the emails to, from formsubmit.co
-	const key = '7735aaa42bf8448ef22dd6ca61b2c88b';
-	// The formsubmit.co URL where the data is being sent to
-	const formSubmit = 'https://formsubmit.co/ajax/' + key;
+	// The URL where the data is being sent to
+	const formSubmit = 'https://api.web3forms.com/submit';
 
 	// The form element
 	let form = document.forms.namedItem('kontaktform');
-
-	// Get the required fields
-	let requiredFields = document.querySelectorAll('[required]');
 
 	// Get the date picker elements from the form
 	let arrivalDatepicker = document.getElementById('kontakt_anreise');
@@ -66,9 +61,6 @@ document.addEventListener('DOMContentLoaded', function()
 			let dateDifference = departureDate.getTime() - arrivalDate.getTime();
 			formData.set('Nätchen', Math.ceil(dateDifference / (1000 * 3600 * 24)));
 
-			// Set value for the 'actual' email field
-			formData.set('Email', formData.get('_replyto'))
-
 			msgWaiting.removeAttribute('hidden');
 			sendingIcon.removeAttribute('aria-hidden');
 			forsendIcon.setAttribute('aria-hidden', 'true');
@@ -76,18 +68,25 @@ document.addEventListener('DOMContentLoaded', function()
 			if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
 			if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 			if (!msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
-			
+
+			const object = Object.fromEntries(formData);
+			const json = JSON.stringify(object);
+
 			fetch(formSubmit,
 			{
 				method: "POST",
-				body: formData,
+				body: json,
+				headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
+				},
 			})
 			.then(response => response.json())
 			.then(data =>
 			{
 				console.log(data);
 
-				if (data.success === 'true')
+				if (data.success === true)
 				{
 					successIcon.removeAttribute('aria-hidden');
 					if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
@@ -117,6 +116,20 @@ document.addEventListener('DOMContentLoaded', function()
 				msgWarning.removeAttribute('hidden');
 				if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
 				if (!msgWaiting.getAttribute('hidden')) msgWaiting.setAttribute('hidden', '');
+			})
+			.then(function() {
+				form.reset();
+				setTimeout(() => {
+					if (!msgSuccess.getAttribute('hidden')) msgSuccess.setAttribute('hidden', '');
+					if (!msgWarning.getAttribute('hidden')) msgWarning.setAttribute('hidden', '');
+					if (!msgWaiting.getAttribute('hidden')) msgWaiting.setAttribute('hidden', '');
+					if (!sendingIcon.getAttribute('aria-hidden')) sendingIcon.setAttribute('aria-hidden', 'true');
+					if (!successIcon.getAttribute('aria-hidden')) successIcon.setAttribute('aria-hidden', 'true');
+					if (!warningIcon.getAttribute('aria-hidden')) warningIcon.setAttribute('aria-hidden', 'true');
+					if (forsendIcon.getAttribute('aria-hidden')) forsendIcon.removeAttribute('aria-hidden');
+					arrivalDatepicker.value = todayDateStr;
+					departureDatepicker.value = tomorrowDateStr;
+				}, 15000);
 			});
 		}
 	}
